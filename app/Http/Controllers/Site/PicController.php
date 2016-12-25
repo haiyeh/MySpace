@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\site;
 
 use Illuminate\Http\Request;
-use App\Common;
+
+use App\model\Album;
+use App\model\Type;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -19,6 +21,31 @@ class PicController extends Controller
         return view('site/picture', [
             'title' => 'picture',
         ]);
+    }
+
+    public function newAlbum()
+    {
+        return view('site/newAlbum', ['title' => '新建相册']);
+    }
+
+    public function storeAlbum(Request $request)
+    {
+        $name = $request->input('name');
+        $desc = $request->input('desc');
+        $status = $request->input('status');
+        $type = Type::checkTypeExist($request->input('type'));
+        if (!$type) {
+            return 0;
+        }
+        if (empty($status)) {
+            $status = 0;   //0表示不公开相册
+        }
+        $res = Album::storeAlbum($name,$type,$desc,$status);
+        if ($res) {
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
     public function uploadPic()

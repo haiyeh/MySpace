@@ -11,18 +11,27 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+// 认证路由...
+Route::any('auth/login', 'Auth\AuthController@getLogin');
+Route::any('auth/login', 'Auth\AuthController@postLogin');
+Route::any('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::group(['namespace' => 'Site'], function(){
-	// Route::get('/', function(){
-	// 	return view('site/index');
-	// });
-	Route::get('/', ['as' => 'index', 'uses' => 'SiteController@index']);
-	Route::get('diary', ['as' => 'diary', 'uses' => 'DiaryController@index']);
-	Route::get('say', ['as' => 'say', 'uses' => 'SayController@index']);
-	Route::get('picture', ['as' => 'picture', 'uses' => 'PicController@index']);
-	Route::get('setting', ['as' => 'setting', 'uses' => 'SetController@index']);
+	Route::any('getUser', ['as' => 'getUser', 'uses' => 'SiteController@getUser']);
+	Route::any('createDiary', ['as' => 'creatediary', 'uses' => 'DiaryController@createDiary']);
+	Route::any('diary/store', ['as' => 'storediary', 'uses' => 'DiaryController@store']);
+	Route::any('createSay', ['as' => 'createsay', 'uses' => 'SayController@createSay']);
+	Route::any('say/store', ['as' => 'storesay', 'uses' => 'SayController@store']);
+	Route::any('uploadPic', ['as' => 'uploadpic', 'uses' => 'PicController@uploadPic']);
+	Route::any('setting', ['as' => 'setting', 'uses' => 'SetController@index']);
+	Route::any('newAlbum', ['as' => 'newAlbum', 'uses' => 'PicController@newAlbum']);
+	Route::any('pic/storeAlbum', ['as' => 'storealbum', 'uses' => 'PicController@storeAlbum']);
 });
+
+Route::group(['namespace' => 'Site'], function(){
+		Route::any('/', ['as' => 'index', 'uses' => 'SiteController@index']);
+		Route::any('diary', ['as' => 'diary', 'uses' => 'DiaryController@index']);
+		Route::any('read/{id}', ['as' => 'read', 'uses' => 'DiaryController@read']);
+		Route::any('say', ['as' => 'say', 'uses' => 'SayController@index']);
+		Route::any('picture', ['as' => 'picture', 'uses' => 'PicController@index']);
+	});

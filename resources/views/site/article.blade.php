@@ -1,6 +1,5 @@
 @extends('common.layout')
 
-@section('title', 'Read Article')
 @section('siteleft')
 <a href="{{ url('diary') }}" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>返回</a>
 		<div class="page-header">

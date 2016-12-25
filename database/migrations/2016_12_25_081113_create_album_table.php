@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePicTable extends Migration
+class CreateAlbumTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreatePicTable extends Migration
      */
     public function up()
     {
-        Schema::create('pics', function (Blueprint $table) {
+        Schema::create('albums', function(Blueprint $table){
             $table->increments('id');
-            $table->string('imgpath');
-            $table->tinyInteger('ce_id');
+            $table->string('cname', 20);
             $table->tinyInteger('status');
-            $table->bigInteger('upload_at');
+            $table->smallInteger('type');
+            $table->string('desc', 200);
             $table->timestamps();
         });
     }

@@ -53,6 +53,7 @@ class DiaryController extends Controller
         $diary = Diary::getOneDiary($id);
         return view('site/article', [
             'diary' => $diary,
+            'title' => 'ARTICLE',
         ]);
     }
 

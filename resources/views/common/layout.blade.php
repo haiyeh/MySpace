@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>@yield('title')</title>
+		<title>{{ $title }}</title>
 		<link rel="stylesheet" type="text/css" href="{{ asset('layui/css/layui.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">

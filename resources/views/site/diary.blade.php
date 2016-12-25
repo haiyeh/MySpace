@@ -1,6 +1,5 @@
 @extends('common.layout')
 
-@section('title', 'MySpace Site')
 @section('siteleft')
 	<a href="{{ url('createDiary') }}" class="btn btn-primary" id="write"><i class="layui-icon">&#xe608;</i>写日志</a>
 	<button class="btn btn-primary" type="button">

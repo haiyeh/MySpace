@@ -13,7 +13,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
  	,element = layui.element();
 
  	//实例化layui编辑器
-
+ 	//日志
 	var diary = layedit.build('diary', {
 		height: 350,
 		uploadImage: {
@@ -21,11 +21,16 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 			type: 'post'
 		}
 	});
-
+	//说说
 	var say = layedit.build('say', {
 		height: 150,
 		tool: ['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
 	});
+	//相册描述
+	// var desc = layedit.build('desc', {
+	// 	height: 150,
+	// 	tool: ['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
+	// });
 
 	//监听提交按钮  ajax
 	form.on('submit(addSay)', function(data){
@@ -96,7 +101,41 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 			}, JSON);
 			return false;
 		});
+		
 
+		form.on('submit(addAlbum)', function(data){
+			var desc = data.field.desc;
+			var name = data.field.name;
+			var type = data.field.type;
+			var status = data.field.status;
+			var url = data.field.hidden;
+			var token = data.field._token;
+			$.ajax({
+				url:url,
+				type:'post',
+				data:{'_token':token,'name':name,'type':type,'status':status,'desc':desc},
+				success: function(res){
+					if (res == 1) {
+						layui.use('layer', function(){
+							var layer = layui.layer;
+							layer.msg('新建成功');
+						})
+					}else{
+						layui.use('layer', function(){
+							var layer = layui.layer;
+							layer.msg('新建失败');
+						})
+					}
+				},
+				error:function(){
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('系统错误,正在修复中....');
+					})
+				},
+			});
+			return false;
+		});
 	
 	//表单验证信息定义
 	form.verify({
@@ -127,6 +166,11 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
     	console.log(res); //上传成功返回值，必须为json格式
   		}
 	});
+
+	layer.photos({
+	    photos: '#layer-photos-demo'
+	    ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	}); 
 
 });
 

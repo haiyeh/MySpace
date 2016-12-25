@@ -1,6 +1,5 @@
 @extends('common.layout')
 
-@section('title', 'MySpace Site')
 @section('siteleft')
 @include('auth.errors')
 	<form class="layui-form layui-form-pane">
