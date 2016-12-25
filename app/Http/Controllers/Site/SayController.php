@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\site;
 
 use Illuminate\Http\Request;
-
+use App\model\Say;
 use App\Http\Requests;
+use App\Common;
 use App\Http\Controllers\Controller;
 
 class SayController extends Controller
@@ -16,7 +17,13 @@ class SayController extends Controller
      */
     public function index()
     {
-        return view('site/say', ['title' => 'My Diary']);
+        $says = Say::getAllSay();
+        $count = Say::getSayCount();
+        return view('site/say', [
+            'title' => 'My Say', 
+            'says' => $says, 
+            'count' => $count,
+        ]);
     }
 
     /**
@@ -24,9 +31,11 @@ class SayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createSay()
     {
-        //
+        return view('site/createSay', [
+            'title' => 'Create Say',
+        ]);
     }
 
     /**
@@ -37,51 +46,17 @@ class SayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $content = $request->content;
+        if (empty($content)) {
+            return 2;
+        }
+        $res = Say::addSay($content);
+        if ($res) {
+            return 1;
+        }else{
+            return 0; 
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

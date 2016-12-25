@@ -5,6 +5,7 @@ namespace App\Http\Controllers\site;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Common;
 use App\Http\Controllers\Controller;
 
 class SetController extends Controller
@@ -16,7 +17,9 @@ class SetController extends Controller
      */
     public function index()
     {
-        return view('site/setting', ['title' => 'My Diary']);
+        return view('site/setting', [
+            'title' => 'My Diary',
+        ]);
     }
 
     /**

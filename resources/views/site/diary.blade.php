@@ -1,21 +1,15 @@
 @extends('common.layout')
 
 @section('title', 'MySpace Site')
-@section('daohang')
-	<ul class="layui-nav" lay-filter="|">
-	    <li class="layui-nav-item"><a href="{{ url('/') }}"><i class="layui-icon">&#xe60c;</i> 首页</a></li>
-	    <li class="layui-nav-item layui-this"><a href="{{ url('diary') }}"><i class="layui-icon">&#xe63c;</i> 日志</a></li>
-	    <li class="layui-nav-item"><a href="{{ url('say') }}"><i class="layui-icon">&#xe63a;</i> 说说</a></li>
-	    <li class="layui-nav-item"><a href="{{ url('picture') }}"><i class="layui-icon">&#xe634;</i> 相册</a></li>
-	    <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe613;</i> 博客</a></li>
-	    <li class="layui-nav-item"><a href="{{ url('setting') }}"><i class="layui-icon">&#xe614;</i> 设置</a></li>
-	</ul>
-@endsection
 @section('siteleft')
-	<fieldset class="layui-elem-field">
-  	<legend>This is title</legend>
-  		<div class="layui-field-box">
-    		内容区域
-  		</div>
-	</fieldset>
+	<a href="{{ url('createDiary') }}" class="btn btn-primary" id="write"><i class="layui-icon">&#xe608;</i>写日志</a>
+	<button class="btn btn-primary" type="button">
+  		已发布日志数: <span class="badge">{{ $count }}</span>
+	</button>
+	@foreach($diarys as $item)
+		<br />
+		<p class="lead"><a href="{{ url('read') }}/{{ $item->id }}">{!! $item->title !!}</a><small>发布于{{ date('Y-m-d H:i:s', $item->published_at) }}</small></p>
+		<blockquote class="layui-elem-quote layui-quote-nm"><p>{{ strip_tags(mb_substr($item->content, 0, 200)) }}......</p></blockquote>
+	@endforeach
+	{!! $diarys->render() !!}
 @endsection
