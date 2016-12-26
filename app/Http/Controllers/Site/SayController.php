@@ -5,7 +5,6 @@ namespace App\Http\Controllers\site;
 use Illuminate\Http\Request;
 use App\model\Say;
 use App\Http\Requests;
-use App\Common;
 use App\Http\Controllers\Controller;
 
 class SayController extends Controller

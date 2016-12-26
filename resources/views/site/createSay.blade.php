@@ -13,7 +13,7 @@
   	</div>
   	<div class="layui-form-item">
     	<div class="layui-input-block">
-      		<button class="btn btn-primary" lay-submit lay-filter="addSay">立即提交</button>
+      		<button class="btn btn-primary" lay-submit lay-filter="addSay">保存</button>
       		<button type="reset" class="btn btn-primary">重置</button>
           <a href="{{ url('say') }}" class="btn btn-primary">返回</a>
     	</div>

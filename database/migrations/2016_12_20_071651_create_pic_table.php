@@ -15,7 +15,7 @@ class CreatePicTable extends Migration
         Schema::create('pics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('imgpath');
-            $table->tinyInteger('ce_id');
+            $table->tinyInteger('album_id');
             $table->tinyInteger('status');
             $table->bigInteger('upload_at');
             $table->timestamps();

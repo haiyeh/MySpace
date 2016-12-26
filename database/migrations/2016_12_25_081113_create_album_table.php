@@ -14,7 +14,7 @@ class CreateAlbumTable extends Migration
     {
         Schema::create('albums', function(Blueprint $table){
             $table->increments('id');
-            $table->string('cname', 20);
+            $table->string('album_name', 20);
             $table->tinyInteger('status');
             $table->smallInteger('type');
             $table->string('desc', 200);

@@ -158,21 +158,11 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 	  	] 
 	});      
 
-
-	//实例化一个上传控件
-	layui.upload({
-  	url: '上传接口url'
-  	,success: function(res){
-    	console.log(res); //上传成功返回值，必须为json格式
-  		}
-	});
-
 	layer.photos({
 	    photos: '#layer-photos-demo'
 	    ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
 	}); 
 
 });
-
 
 

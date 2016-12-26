@@ -14,5 +14,11 @@
 	<div id="layer-photos-demo" class="layer-photos-demo">
 	    <img layer-pid="图片id，可以不写" layer-src="http://oi2an7eqi.bkt.clouddn.com/01.jpg" src="http://oi2an7eqi.bkt.clouddn.com/01.jpg" alt="图片名">
 	</div>
-
+	<div class="row">
+		<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img data-src="/100%x180" alt="">
+			</a>
+		</div>
+	</div>
 @endsection

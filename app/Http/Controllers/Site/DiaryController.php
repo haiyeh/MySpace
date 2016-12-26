@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\model\Diary;
-use App\Common;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 

@@ -10,13 +10,13 @@ class Diary extends Model
 
     public static function getDiary()
     {
-        $diary = Diary::where('published_at', '<=', time())->orderby('published_at', 'desc')->limit(1)->firstOrFail();
+        $diary = Diary::where('published_at', '<=', time())->orderby('published_at', 'desc')->limit(1)->first();
         return $diary;
     }
 
     public static function getOneDiary($id)
     {
-        $diary = Diary::where('id', $id)->firstOrFail();
+        $diary = Diary::where('id', $id)->first();
         return $diary;
     } 
 

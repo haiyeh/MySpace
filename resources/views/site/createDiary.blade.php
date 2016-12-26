@@ -25,7 +25,7 @@
   	</div>
   	<div class="layui-form-item">
     	<div class="layui-input-block">
-      		<button class="btn btn-primary" lay-submit lay-filter="addDiary">立即提交</button>
+      		<button class="btn btn-primary" lay-submit lay-filter="addDiary">保存</button>
       		<button type="reset" class="btn btn-primary">重置</button>
           <a href="{{ url('diary') }}" class="btn btn-primary">返回</a>
     	</div>

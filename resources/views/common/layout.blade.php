@@ -15,27 +15,7 @@
 			</div>
 		@show
 		@section('daohang')
-		<!-- <ul class="layui-nav" lay-filter="|">
-	      	<li class="layui-nav-item layui-this"><a href="{{ url('/') }}"><i class="layui-icon">&#xe60c;</i> 首页</a></li>
-	      	<li class="layui-nav-item"><a href="{{ url('diary') }}"><i class="layui-icon">&#xe63c;</i> 日志</a></li>
-	     	<li class="layui-nav-item"><a href="{{ url('say') }}"><i class="layui-icon">&#xe63a;</i> 说说</a></li>
-	     	<li class="layui-nav-item"><a href="{{ url('picture') }}"><i class="layui-icon">&#xe634;</i> 相册</a></li>
-	      	<li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe613;</i> 博客</a></li>
-	      	<li class="layui-nav-item"><a href="{{ url('setting') }}"><i class="layui-icon">&#xe614;</i> 设置</a></li>
-	      	<li class="layui-nav-item">   
-	        <a href="javascript:;">admin</a>
-	      	<dl class="layui-nav-child">  二级菜单 
-	            <dd><a href="">查看信息</a></dd>
-	            <dd><a href="">更换头像</a></dd>
-	            <dd><a href="{{ url('auth/logout') }}">退出登录</a></dd>
-	      	</dl>
-	      	</li>
-	      	<li class="layui-nav-item">
-	        	<div class="header">
-	                <img src="http://oi2an7eqi.bkt.clouddn.com/01.jpg" alt="" class="img-thumbnail">
-	            </div>
-	        </li>
-  		</ul> -->
+
   		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		  <div class="container">
 		    <!-- Brand and toggle get grouped for better mobile display -->
@@ -55,11 +35,13 @@
 		        <li><a href="{{ url('diary') }}">日志</a></li>
 		        <li><a href="{{ url('say') }}">说说</a></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">相册 <span class="caret"></span></a>
+		          <a href="" class="dropdown-toggle" data-toggle="dropdown">相册 <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="{{ url('picture') }}"">查看相册</a></li>
+					<li><a href="{{ url('picture') }}">查看图片</a></li>
+					<li class="divider"></li>
+		            <li><a href="{{ url('newAlbum') }}">新建相册</a></li>
 		            <li class="divider"></li>
-		            <li><a href="#">上传照片</a></li>
+		            <li><a href="{{ url('uploadPic') }}">上传照片</a></li>
 		          </ul>
 		        </li>
 		      </ul>
@@ -74,11 +56,11 @@
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">admin <span class="caret"></span></a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="{{ url('setting') }}"">页面设置</a></li>
+		            <li><a href="{{ url('setting') }}">页面设置</a></li>
 		            <li><a href="#">更换头像</a></li>
 		            <li><a href="#"></a></li>
 		            <li class="divider"></li>
-		            <li><a href="{{ url('auth/logout') }}"">退出登录</a></li>
+		            <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 		          </ul>
 		        </li>
 		      </ul>

@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\model\Album;
 use App\model\Type;
 use App\Http\Requests;
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
 use App\Http\Controllers\Controller;
+
 
 class PicController extends Controller
 {
@@ -50,6 +53,15 @@ class PicController extends Controller
 
     public function uploadPic()
     {
-        return view('site/uploadPic', ['title' => 'upload picture']);
+        $albums = Album::getAlbums();
+        if (empty($albums)){
+            $albums = '暂无相册';
+        }
+        return view('site/uploadPic', ['title' => 'upload picture', 'albums' => $albums]);
+    }
+
+    public function upload(Request $request)
+    {
+
     }
 }
