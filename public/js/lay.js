@@ -26,11 +26,6 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		height: 150,
 		tool: ['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
 	});
-	//相册描述
-	// var desc = layedit.build('desc', {
-	// 	height: 150,
-	// 	tool: ['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
-	// });
 
 	//监听提交按钮  ajax
 	form.on('submit(addSay)', function(data){
@@ -136,6 +131,29 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 			});
 			return false;
 		});
+
+	form.on('submit(newAlbum)', function () {
+		layer.open({
+			type: 2,
+			title: 'NEW ALBUM',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['580px', '90%'],
+			content: 'http://localhost/public/newAlbum'
+		});
+	});
+
+	form.on('submit(uploadPic)', function () {
+		layer.open({
+			type: 2,
+			title: 'NEW PICTURE',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['580px', '90%'],
+			content: 'http://localhost/public/uploadPic'
+		});
+	});
+
 	
 	//表单验证信息定义
 	form.verify({
@@ -161,8 +179,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 	layer.photos({
 	    photos: '#layer-photos-demo'
 	    ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
-	}); 
+	});
 
 });
-
 

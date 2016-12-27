@@ -26,7 +26,7 @@ Route::group(['namespace' => 'Site'], function(){
 	Route::any('setting', ['as' => 'setting', 'uses' => 'SetController@index']);
 	Route::any('newAlbum', ['as' => 'newAlbum', 'uses' => 'PicController@newAlbum']);
 	Route::any('pic/storeAlbum', ['as' => 'storealbum', 'uses' => 'PicController@storeAlbum']);
-    Route::any('pic/upload', ['as' => 'upload', 'uses' => 'PicController@upload']);
+    Route::any('pic/uploadify', ['as' => 'upload', 'uses' => 'PicController@uploadify']);
 });
 
 Route::group(['namespace' => 'Site'], function(){

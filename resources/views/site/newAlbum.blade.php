@@ -1,6 +1,19 @@
-@extends('common.layout')
-
-@section('siteleft')
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ $title }}</title>
+	<link rel="stylesheet" type="text/css" href="{{ asset('layui/css/layui.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/upload/css/fileinput.min.css') }}">
+</head>
+<body>
+<div class="jumbotron">
+	<div class="container">
+		<h1>NEW ALBUM</h1>
+	</div>
+</div>
+<div class="container">
 @include('auth.errors')
 	<form class="layui-form layui-form-pane">
     {!! csrf_field() !!}
@@ -33,8 +46,16 @@
     	<div class="layui-input-block">
       		<button class="btn btn-primary" lay-submit lay-filter="addAlbum">保存</button>
       		<button type="reset" class="btn btn-primary">重置</button>
-          <a href="{{ url('picture') }}" class="btn btn-primary">返回</a>
     	</div>
   	</div>
 	</form>
-@endsection
+</div>
+<script type="text/javascript" src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/lay.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bootstrap/upload/js/fileinput.min.js') }}"></script>
+<script src="{{ asset('bootstrap/upload/js/locales/zh.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/uploadify.js') }}"></script>
+</body>
+</html>

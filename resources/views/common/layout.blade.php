@@ -39,9 +39,9 @@
 		          <ul class="dropdown-menu" role="menu">
 					<li><a href="{{ url('picture') }}">查看图片</a></li>
 					<li class="divider"></li>
-		            <li><a href="{{ url('newAlbum') }}">新建相册</a></li>
+		            <li><a href="#" lay-submit lay-filter="newAlbum">新建相册</a></li>
 		            <li class="divider"></li>
-		            <li><a href="{{ url('uploadPic') }}">上传照片</a></li>
+					  <li><a href="#" lay-submit lay-filter="uploadPic">上传照片</a></li>
 		          </ul>
 		        </li>
 		      </ul>
@@ -87,11 +87,5 @@
 		<script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/lay.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-		<script type="text/javascript">
-		    $("li").click(function() {
-		    	$("li").removeClass('active');
-  				$(this).addClass('active');
-			});
-		</script>
 	</body>
 </html>
