@@ -17,7 +17,12 @@
 	<div class="container">
 		<form class="form-horizontal required-validate" action="{{ url('pic/uploadify') }}" enctype="multipart/form-data" method="post">
 		{!! csrf_field() !!}
-			<input type="hidden" name="hidden" id="url" value="{{ url('pic/uploadify') }}">
+            <label for="" class="col-md-1 control-label">上传到：</label>
+            <select multiple class="form-control" name="album_id">
+                @foreach($albums as $item)
+                    <option value="{{ $item->id }}">{{ $item->album_name }}</option>
+                @endforeach
+            </select>
 			<div class="form-group">
 				<label for="" class="col-md-1 control-label">图片上传</label>
 				<div class="col-md-10 tl th">

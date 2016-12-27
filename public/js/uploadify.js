@@ -8,20 +8,19 @@ $("#input-id").fileinput({
     showUpload : false,
     showRemove : true,
     language : 'zh',
-    allowedPreviewTypes: ['image'],
+    uploadAsync:false,
+    dropZoneEnabled:false,
+    resizeImage: false,
     allowedFileTypes: ['image'],
     allowedFileExtensions:  ['jpg', 'png', 'jpeg'],
     maxFileSize : 2000,
     maxFileCount: 100,
     browseClass: "btn btn-primary", //按钮样式
     previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-}).on("fileuploaded", function (data) {
-        var res = data.response;
-        if (res.status > 0) {
-            alert('上传成功');
-            alert(res.code);
+}).on("fileuploaded", function () {
+            layui.use('layer', function () {
+                var layer = layui.layer;
+                layer.msg('上传成功');
+            })
         }
-        else {
-            alert('上传失败');
-        }
-    });
+    );

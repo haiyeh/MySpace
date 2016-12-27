@@ -9,6 +9,7 @@ use App\model\Type;
 use App\Http\Requests;
 use Storage;
 use Qiniu\Auth;
+use App\model\Pic;
 use Qiniu\Storage\UploadManager;
 use App\Http\Controllers\Controller;
 
@@ -67,29 +68,37 @@ class PicController extends Controller
 
     public function uploadify(Request $request)
     {
+        $album_id = $request->album_id;
         if ($request->hasFile('file')){
             $foldName = date("Y-m-d", time());
             if (!Storage::disk('local')->exists($foldName)){
                 Storage::makeDirectory($foldName);
             }
+
             $file = $request->file('file');
-//            var_dump($file);die;
+
             foreach ($file as $key => $value){
-                $fileName[] = $value->getClientOriginalName();      //获得文件名称及后缀
+                $extension[] = $value->getClientOriginalExtension();
+                $fileName[] = $value->getClientOriginalName();      //获得缓存的tmp文件名
                 $filePath[] = $value->getRealPath();                //获得文件本地路径
             }
-//            var_dump($filePath);die;
-
             for ($i = 0; $i<count($fileName); $i++){
                 Storage::disk('local')->put($fileName[$i], $file);
-                $res[] = Storage::move($fileName[$i], $foldName.'/'.$fileName[$i]);
+                $store = Storage::move($fileName[$i], $foldName.'/'.md5($fileName[$i]).'.'.$extension[$i]);
+                $imagePath = app_path().$foldName.'/'.md5($fileName[$i]).'.'.$extension[$i];
+                $imagePath = str_replace("/", '\\', $imagePath);
+                $upload_at = time();
+                $res = Pic::addImgPath($imagePath, $album_id, $upload_at);
+                if ($res == false){
+                    return "保存失败";
+                }
+                if ($store == false){
+                    return "上传失败";
+                }
             }
 
-            if (in_array('false', $res)){
-                $wrongPosition = array_keys($res, 'false');
-            }else{
+            return "上传成功";
 
-            }
         }
 
     }
