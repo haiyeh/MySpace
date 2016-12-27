@@ -23,6 +23,8 @@
                     <option value="{{ $item->id }}">{{ $item->album_name }}</option>
                 @endforeach
             </select>
+
+            <a href="#" lay-submit lay-filter="newAlbum" class="btn btn-primary"><span class="glyphicon glyphicon-cloud"></span>新建相册</a>
 			<div class="form-group">
 				<label for="" class="col-md-1 control-label">图片上传</label>
 				<div class="col-md-10 tl th">
