@@ -29,4 +29,24 @@ class Album extends Model
             return false;
         }
     }
+
+    public static function getAlbumId()
+    {
+        $id = Album::select('id')->get();
+        if (empty($id)){
+            return false;
+        }else{
+            return $id;
+        }
+    }
+
+    public static function getAlbumName($id)
+    {
+        $album_name = Album::select('album_name')->where('id', $id)->first();
+        if (empty($album_name->album_name)){
+            return false;
+        }else{
+            return $album_name->album_name;
+        }
+    }
 }
