@@ -74,7 +74,7 @@ class PicController extends Controller
             ->join('albums', 'pics.album_id', '=', 'albums.id')
             ->select('albums.album_name', 'albums.desc', 'pics.imgpath', 'pics.upload_at', 'pics.status')
             ->where('album_id', $album_id)
-            ->get();
+            ->paginate(12);
 //        print_r($data);
         return view('site/readAlbum', ['album_name' => $album_name, 'data' => $data]);
     }
@@ -135,4 +135,10 @@ class PicController extends Controller
         }
 
     }
+
+    /*上传图片到七牛云*/
+    public function UploadQiniu($imagePath)
+    {
+    }
+
 }

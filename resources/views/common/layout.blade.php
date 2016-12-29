@@ -5,6 +5,8 @@
 		<link rel="stylesheet" type="text/css" href="{{ asset('layui/css/layui.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
+		<script type="text/javascript" src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+
 	</head>
 	<body>
 		@section('top')
@@ -14,11 +16,11 @@
 			  </div>
 			</div>
 		@show
-		@section('daohang')
 
+		@section('daohang')
+		{{--导航栏--}}
   		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		  <div class="container">
-		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 		        <span class="sr-only">Toggle navigation</span>
@@ -28,8 +30,6 @@
 		      </button>
 		      <a class="navbar-brand" href="{{ url('/') }}">77-hai</a>
 		    </div>
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li><a href="{{ url('diary') }}">日志</a></li>
@@ -64,10 +64,11 @@
 		          </ul>
 		        </li>
 		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
+		    </div>
+		  </div>
 		</nav>
 		@show
+
 		<div class="container">
 			@yield('siteleft')
 		</div>
@@ -83,7 +84,6 @@
 				<a href="http://glyphicons.com/">Glyphicons</a>
 			</div>
 		@show
-		<script type="text/javascript" src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/lay.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
