@@ -30,6 +30,7 @@ class Pic extends Model
     {
         $id = Album::getAlbumId();
         $count = 0;     //用作数组下标计数
+        $res = array();
         foreach ($id as $key => $value){
 //            $res[$count] = Pic::where(['album_id' => $value->id, 'status' => 1])->first();//status 1  表示 封面图
             $res[$count] = DB::table('pics')

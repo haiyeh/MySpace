@@ -41,7 +41,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 						layui.use('layer', function(){
 							var layer = layui.layer;
 							layer.confirm('说说发表成功', {
-							    btn: ['继续发表','返回首页'] //按钮
+							    btn: ['继续发表','返回说说'] //按钮
 							}, function(){
 								location.reload();
 							}, function(){
@@ -79,7 +79,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 						layui.use('layer', function(){
 							var layer = layui.layer;
 							layer.confirm('日志发表成功', {
-							    btn: ['继续发表','返回首页'] //按钮
+							    btn: ['继续发表','返回日志'] //按钮
 							}, function(){
 								location.reload();
 							}, function(){
@@ -139,7 +139,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 			shadeClose: true,
 			shade: 0.8,
 			area: ['580px', '90%'],
-			content: 'http://localhost/public/newAlbum'
+			content: 'http://localhost/newAlbum'
 		});
 	});
 
@@ -150,7 +150,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 			shadeClose: true,
 			shade: 0.8,
 			area: ['580px', '90%'],
-			content: 'http://localhost/public/uploadPic'
+			content: 'http://localhost/uploadPic'
 		});
 	});
 
