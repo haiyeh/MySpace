@@ -12,7 +12,7 @@
 		@section('top')
 			<div class="jumbotron">
 			  <div class="container">
-			    <h1>Welcome</h1>
+			    <h1>{{ $title }}</h1>
 			  </div>
 			</div>
 		@show
