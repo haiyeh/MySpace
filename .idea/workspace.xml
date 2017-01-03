@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93fafaab-08b3-4b2a-925b-8161613231fa" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_20_071904_create_repltt_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/common/comment.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Site/DiaryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Site/DiaryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Site/SiteController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Site/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/lay.js" afterPath="$PROJECT_DIR$/public/js/lay.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/site/article.blade.php" afterPath="$PROJECT_DIR$/resources/views/site/article.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/site/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/site/index.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_20_071736_create_replto_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_12_20_071736_create_comment_table.php" />
     </list>
     <ignored path="MySpace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,21 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="comment.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/common/comment.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="36" column="83" selection-start-line="36" selection-start-column="83" selection-end-line="36" selection-end-column="83" />
+            <state relative-caret-position="460">
+              <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -107,16 +91,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="article.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/site/article.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
+            <state relative-caret-position="115">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding>
-                <element signature="e#890#910#0#HTML" expanded="true" />
-                <element signature="e#1051#1072#0#HTML" expanded="true" />
-                <element signature="e#1297#1316#0#HTML" expanded="true" />
-                <element signature="e#1334#1360#0#HTML" expanded="true" />
+                <element signature="e#892#912#0#HTML" expanded="true" />
+                <element signature="e#1054#1075#0#HTML" expanded="true" />
+                <element signature="e#1300#1319#0#HTML" expanded="true" />
+                <element signature="e#1337#1363#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,7 +117,6 @@
         <option value="$PROJECT_DIR$/app/model/Praise.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Site/SayController.php" />
         <option value="$PROJECT_DIR$/resources/views/site/say.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/common/comment.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_12_20_071736_create_comment_table.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/site/index.blade.php" />
@@ -142,6 +125,7 @@
         <option value="$PROJECT_DIR$/app/model/Comment.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Site/DiaryController.php" />
         <option value="$PROJECT_DIR$/resources/views/site/article.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/common/comment.blade.php" />
       </list>
     </option>
   </component>
@@ -505,12 +489,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1483421172723</updated>
-      <workItem from="1483421174393" duration="14676000" />
+      <workItem from="1483421174393" duration="15877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14676000" />
+    <option name="totallyTimeSpent" value="15877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -634,22 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="36" column="83" selection-start-line="36" selection-start-column="83" selection-end-line="36" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/common/comment.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Site/SiteController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -688,14 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/site/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
@@ -706,14 +666,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/site/article.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
+        <state relative-caret-position="115">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
           <folding>
-            <element signature="e#890#910#0#HTML" expanded="true" />
-            <element signature="e#1051#1072#0#HTML" expanded="true" />
-            <element signature="e#1297#1316#0#HTML" expanded="true" />
-            <element signature="e#1334#1360#0#HTML" expanded="true" />
+            <element signature="e#892#912#0#HTML" expanded="true" />
+            <element signature="e#1054#1075#0#HTML" expanded="true" />
+            <element signature="e#1300#1319#0#HTML" expanded="true" />
+            <element signature="e#1337#1363#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/site/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/common/comment.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
