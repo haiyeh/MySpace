@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\model\Diary;
 use App\Http\Requests;
+use App\model\Praise;
 use App\Http\Controllers\Controller;
 
 class DiaryController extends Controller
@@ -50,9 +51,14 @@ class DiaryController extends Controller
     {
         $id = $request->id;
         $diary = Diary::getOneDiary($id);
+        $praiseCount = Praise::getPraiseCount(1,$id);
+        if (empty($praiseCount)){
+            $praiseCount = 0;
+        }
         return view('site/article', [
             'diary' => $diary,
             'title' => 'ARTICLE',
+            'praiseCount' => $praiseCount
         ]);
     }
 

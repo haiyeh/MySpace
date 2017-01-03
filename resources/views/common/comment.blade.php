@@ -1,0 +1,1 @@
+<textarea name="comment" id="comment" cols="30" rows="10" class="layui-textarea" placeholder="请输入..."></textarea>

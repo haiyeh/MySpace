@@ -27,6 +27,12 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		tool: ['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
 	});
 
+	//评论框
+	var comment = layedit.build('comment', {
+		height: 150,
+		tool: ['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
+	});
+
 	//监听提交按钮  ajax
 	form.on('submit(addSay)', function(data){
 		var content = layedit.getContent(say);
@@ -154,6 +160,44 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		});
 	});
 
+	form.on('submit(zan)', function () {
+		var url = $("#url").val();
+		var type = $("#type").val();
+		var bid = $("#bid").val();
+		$.ajax({
+			url:url,
+			data:{'type':type,'bid':bid},
+			success:function (res) {
+				// document.write(res);
+				var json = jQuery.parseJSON(res);
+				if(json.code == 1){
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('作者又收到一个赞');
+					})
+					$("#show").html(json.count);
+				}else{
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('点赞失败');
+					})
+					$("#show").html(json.count);
+				}
+			},
+		}, 'json');
+	});
+
+	form.on('submit(comment)', function () {
+		layer.open({
+			type: 1,
+			title:'评论',
+			skin: 'layui-layer-rim', //加上边框
+			area: ['35%', '30%'], //宽高
+			content: "<textarea name='comment' id='comment' cols='15' rows='8' class='layui-textarea'></textarea>"
+					+"<button lay-submit lay-filter='comment_submit' class='btn btn-info btn-sm btn-block'>提交</button>"
+		});
+	});
+
 	
 	//表单验证信息定义
 	form.verify({
@@ -177,4 +221,8 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 	});
 
 });
+
+// function comment(){
+// 	$("#comment_div").css('display', 'block');
+// }
 
