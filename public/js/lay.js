@@ -187,17 +187,32 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		}, 'json');
 	});
 
-	form.on('submit(comment)', function () {
-		layer.open({
-			type: 1,
-			title:'评论',
-			skin: 'layui-layer-rim', //加上边框
-			area: ['35%', '30%'], //宽高
-			content: "<textarea name='comment' id='comment' cols='15' rows='8' class='layui-textarea'></textarea>"
-					+"<button lay-submit lay-filter='comment_submit' class='btn btn-info btn-sm btn-block'>提交</button>"
+	form.on('submit(comment_submit)', function (data) {
+		var url = $("#comment_url").val();
+		var type = $("#type").val();
+		var bid = $("#bid").val();
+		var content = layedit.getContent(comment);
+		var _token = $("#_token").val();
+		$.ajax({
+			url:url,
+			data:{'type':type,'bid':bid,'content':content},
+			success:function (res) {
+				var json = jQuery.parseJSON(res);
+				if (json.code == 1){
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('评论已发表');
+					})
+					$("#comment_all").prepend('<blockquote class="layui-elem-quote layui-quote-nm">'+json.content+'</blockquote>'+'<hr>');
+				}else{
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('评论发表失败咯');
+					})
+				}
+			},
 		});
 	});
-
 	
 	//表单验证信息定义
 	form.verify({
@@ -222,7 +237,11 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 
 });
 
-// function comment(){
-// 	$("#comment_div").css('display', 'block');
-// }
+function comment(){
+	$("#comment_div").css('display', 'block');
+}
+function quxiao()
+{
+	$("#comment_div").css('display', 'none');
+}
 

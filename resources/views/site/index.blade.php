@@ -19,8 +19,5 @@
 	<input type="hidden" id="bid" value="{{ $diary->id }}">
 	<blockquote class="layui-elem-quote layui-quote-nm">
 		{!! $diary->content !!}
-		<a href="#" style="float: right" lay-submit lay-filter="comment">
-			<span class="glyphicon glyphicon-comment"></span>
-		</a>
 	</blockquote>
 @endsection

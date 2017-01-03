@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\model\Diary;
 use App\model\Pic;
 use App\model\Praise;
+use App\model\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,25 @@ class SiteController extends Controller
             $arr = array(
                 'code' => 0,
                 'count' => $count,
+            );
+        }
+        return json_encode($arr);
+    }
+
+    public function comment(Request $request)
+    {
+        $type = $request->type;
+        $bid = $request->bid;
+        $content = $request->content;
+        $res = Comment::doComment($type, $bid, $content);
+        if ($res){
+            $arr = array(
+                'code' => 1,
+                'content' => $content,
+            );
+        }else{
+            $arr = array(
+                'code' => 0
             );
         }
         return json_encode($arr);

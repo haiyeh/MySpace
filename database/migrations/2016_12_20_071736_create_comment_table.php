@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReplttTable extends Migration
+class CreateCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,11 @@ class CreateReplttTable extends Migration
      */
     public function up()
     {
-        Schema::create('replyts', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('replyo_id');
-            $table->string('content', 100);
+            $table->smallInteger('bid');
+            $table->tinyInteger('type');
+            $table->string('content', 150);
             $table->timestamps();
         });
     }

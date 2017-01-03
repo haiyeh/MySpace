@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\model\Comment;
 use Illuminate\Http\Request;
 use App\model\Diary;
 use App\Http\Requests;
@@ -55,10 +56,14 @@ class DiaryController extends Controller
         if (empty($praiseCount)){
             $praiseCount = 0;
         }
+
+        $article_comment = Comment::getComment(1, $id);
+//        var_dump($article_comment);die;
         return view('site/article', [
             'diary' => $diary,
-            'title' => 'ARTICLE',
-            'praiseCount' => $praiseCount
+            'title' => $diary->title,
+            'praiseCount' => $praiseCount,
+            'article_comment' => $article_comment
         ]);
     }
 

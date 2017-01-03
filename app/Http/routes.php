@@ -34,4 +34,5 @@ Route::group(['namespace' => 'Site'], function(){
     Route::any('say', ['as' => 'say', 'uses' => 'SayController@index']);
     Route::any('picture', ['as' => 'picture', 'uses' => 'PicController@index']);
     Route::any('praise', ['as' => 'praise', 'uses' => 'SiteController@praise']);
+    Route::any('comment', ['as' => 'comment', 'uses' => 'SiteController@comment']);
 });
