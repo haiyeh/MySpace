@@ -54,11 +54,18 @@
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="#">CSDN博客</a></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">admin <span class="caret"></span></a>
+					  @if(!empty(session('username')))
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						{{ session('username') }}
+					  @else
+						  <li><a href="{{ url('auth/login') }}">登录</a></li>
+					  @endif
+					  <span class="caret"></span>
+				  </a>
 		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="{{ url('setting') }}">页面设置</a></li>
+		            <li><a href="{{ url('setting') }}">个人信息</a></li>
+					<li class="divider"></li>
 		            <li><a href="#">更换头像</a></li>
-		            <li><a href="#"></a></li>
 		            <li class="divider"></li>
 		            <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 		          </ul>

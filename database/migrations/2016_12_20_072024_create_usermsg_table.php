@@ -15,10 +15,14 @@ class CreateUsermsgTable extends Migration
         Schema::create('usermsgs', function (Blueprint $table) {
             $table->increments('id');
             $table->smallInteger('user_id');
-            $table->string('name', 20);
-            $table->string('email', 50)->unique();
+            $table->string('username');
+            $table->string('phonenumber', 13)->unique();
+            $table->string('address', 15);
+            $table->string('hobby', 40);
+            $table->tinyInteger('sex');
+            $table->tinyInteger('livestatus');
             $table->string('headerpath');
-            $table->string('phone', 13);
+            $table->string('desc',100);
             $table->timestamps();
         });
     }

@@ -12,9 +12,9 @@
 */
 
 // 认证路由...
-Route::any('auth/login', 'Auth\AuthController@getLogin');
-Route::any('auth/login', 'Auth\AuthController@postLogin');
-Route::any('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::group(['namespace' => 'Site'], function(){
 	Route::any('getUser', ['as' => 'getUser', 'uses' => 'SiteController@getUser']);
@@ -35,4 +35,7 @@ Route::group(['namespace' => 'Site'], function(){
     Route::any('picture', ['as' => 'picture', 'uses' => 'PicController@index']);
     Route::any('praise', ['as' => 'praise', 'uses' => 'SiteController@praise']);
     Route::any('comment', ['as' => 'comment', 'uses' => 'SiteController@comment']);
+    Route::get('register', 'UserController@applyAccount');
+    Route::any('saveUser', 'UserController@saveUser');
+    Route::any('userMsg', 'UserController@userMsg');
 });

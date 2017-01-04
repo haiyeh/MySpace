@@ -3,11 +3,15 @@
 	<head>
 		<meta name="_token" content="{{ csrf_token() }}"/>
 		<title>@yield('title')</title>
+		<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('layui/css/layui.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
 	</head>
 	<body>
-		<div class="login">
+	<div class="container">
+		@include('auth.errors')
+	</div>
+		<div class="login" id="login">
 			<i class="layui-icon" style="font-size: 30px; color: #009688;">&#xe62e;</i>登录
 			<form class="layui-form layui-form-pane" action="{{ url('auth/login') }}" method="post">
 				{!! csrf_field() !!}
@@ -39,11 +43,11 @@
     				<div class="layui-input-block">
 			      		<button class="layui-btn" lay-submit lay-filter="login">登录</button>
 			            <a href="{{ url('/') }}" class="layui-btn layui-btn-small">返回首页</a>
+						<a href="{{ url('register') }}" class="layui-btn layui-btn-small">申请账号</a>
 			    	</div>
 			  	</div>
  			</form>
 		</div>
-		@include('auth.errors')
 		<script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('js/lay.js') }}"></script>
 	</body>

@@ -207,13 +207,46 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 				}else{
 					layui.use('layer', function(){
 						var layer = layui.layer;
-						layer.msg('评论发表失败咯');
+						layer.msg('评论发表失败');
 					})
 				}
 			},
 		});
 	});
 	
+	form.on('submit(userMsg)', function () {
+		var username = $("#username").val();
+		var phonenumber = $("#phonenumber").val();
+		var city = $("#city").val();
+		var street = $("#street").val();
+		var hobby = $("#hobby").val();
+		var alone = $("#alone").val();
+		var sex = $("#sex").val();
+		var desc = $("#desc").val();
+		var url = $("#url").val();
+		var _token = $("#_token").val();
+		$.ajax({
+			url:url,
+			type:'post',
+			data:{'username':username,'phonenumber':phonenumber,'city':city,'street':street,'hobby':hobby,'alone':alone,'sex':sex,'desc':desc,'_token':_token},
+			success:function (res) {
+				if (res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('您的信息已保存');
+					})
+					window.location = 'http://localhost';
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('信息保存失败');
+					})
+				}
+			},
+		});
+		return false;
+	});
+
 	//表单验证信息定义
 	form.verify({
   		username: function(value){

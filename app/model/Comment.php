@@ -12,12 +12,13 @@ class Comment extends Model
         $comment->type = $type;
         $comment->bid = $bid;
         $comment->content = $content;
+        $comment->comment_at = time();
         $res = $comment->save();
         return $res;
     }
 
     public static function getComment($type, $bid)
     {
-        return Comment::where(['type' => $type, 'bid' => $bid])->paginate(10);
+        return Comment::where(['type' => $type, 'bid' => $bid])->orderby('comment_at', 'desc')->paginate(10);
     }
 }

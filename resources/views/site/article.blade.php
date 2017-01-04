@@ -39,10 +39,22 @@
 	</div>
 
 	<div class="container" id="comment_all">
-		@foreach($article_comment as $key=>$value)
-			<blockquote class="layui-elem-quote layui-quote-nm">
-				{!! $value->content !!}
-			</blockquote>
-		@endforeach
+
+			<hr>
+			<span style="float: left">评论区：</span>
+			<hr>
+			@foreach($article_comment as $key=>$value)
+				@if(empty($value->content))
+					<blockquote class="layui-elem-quote layui-quote-nm">
+						暂无评论，快来抢沙发吧！！
+					</blockquote>
+				@else
+				<blockquote class="layui-elem-quote layui-quote-nm">
+					{!! $value->content !!}
+					<span style="float:right;">{{ date("Y-m-d", $value->comment_at) }}</span>
+				</blockquote>
+				@endif
+			@endforeach
 	</div>
+	<div class="container">{!! $article_comment->render() !!}</div>
 @endsection
