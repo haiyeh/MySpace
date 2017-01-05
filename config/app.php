@@ -137,6 +137,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Encore\Admin\Providers\AdminServiceProvider::class,
         /*
          * Application Service Providers...
          */
