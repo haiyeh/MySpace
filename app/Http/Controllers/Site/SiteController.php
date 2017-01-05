@@ -17,9 +17,11 @@ class SiteController extends Controller
 		$diaries = Diary::getDiary();
 //        var_dump($diaries);
         $praiseCount = Praise::getPraiseCount(1,$diaries->id);
+
         if (empty($praiseCount)){
             $praiseCount = 0;
         }
+
 		return view('site/index', [
 			'title' => 'MySpace Site', 
 			'diary' => $diaries,
@@ -34,6 +36,7 @@ class SiteController extends Controller
         $res = Praise::doPraise($type, $bid);
         $praiseCount = Praise::getPraiseCount($type, $bid);
         $count = $praiseCount->count;
+
         if ($res){
             $arr = array(
                 'code' => 1,
@@ -54,6 +57,7 @@ class SiteController extends Controller
         $bid = $request->bid;
         $content = $request->content;
         $res = Comment::doComment($type, $bid, $content);
+
         if ($res){
             $arr = array(
                 'code' => 1,

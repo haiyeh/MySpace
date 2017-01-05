@@ -33,6 +33,12 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		tool: ['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
 	});
 
+	//留言板
+	var message = layedit.build('message', {
+		height:150,
+		tool:['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
+	});
+
 	//监听提交按钮  ajax
 	form.on('submit(addSay)', function(data){
 		var content = layedit.getContent(say);
@@ -247,6 +253,43 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		return false;
 	});
 
+	form.on('submit(msgbox)', function () {
+		var content = layedit.getContent(message);
+		var _token = $("#_token").val();
+		var url = $("#url").val();
+		$.ajax({
+			url:url,
+			type:'post',
+			data:{'_token':_token,'content':content},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('留言已发表');
+					})
+					window.location.reload();
+				}else if(res == -1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('您没有登录,请登陆后再留言哦');
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('留言失败,请检查您的RP');
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.msg('程序出错，正在紧急抢救中...');
+				})
+			}
+		});
+		return false;
+	});
+
 	//表单验证信息定义
 	form.verify({
   		username: function(value){
@@ -271,10 +314,10 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 });
 
 function comment(){
-	$("#comment_div").css('display', 'block');
+	$("#comment_div").toggle('slow');
 }
 function quxiao()
 {
-	$("#comment_div").css('display', 'none');
+	$("#comment_div").fadeOut('slow');
 }
 

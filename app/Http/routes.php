@@ -38,4 +38,6 @@ Route::group(['namespace' => 'Site'], function(){
     Route::get('register', 'UserController@applyAccount');
     Route::any('saveUser', 'UserController@saveUser');
     Route::any('userMsg', 'UserController@userMsg');
+    Route::get('message', ['as' => 'message', 'uses' => 'MessageController@index']);
+    Route::any('storeMessage', ['as' => 'storeMessage', 'uses' => 'MessageController@storeMessage']);
 });
