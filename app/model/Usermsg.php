@@ -20,4 +20,9 @@ class Usermsg extends Model
         $usermsg->headerpath = $headerpath;
         return $usermsg->save();
     }
+
+    public static function getUserMsg($user_id)
+    {
+        return Usermsg::where('user_id', $user_id)->first();
+    }
 }

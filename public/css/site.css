@@ -70,3 +70,15 @@ body{
 .jumbotron{
 	
 }
+.userInfo{
+	width:230px;
+	height:118px;
+	float: right;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+.userInfo_left{
+	width:84px;
+	height:115px;
+	float: left;
+}

@@ -3,6 +3,7 @@
 namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Message extends Model
 {
@@ -18,7 +19,13 @@ class Message extends Model
     public static function getAllMsg()
     {
         $user_id = session('user_id');
-        $message = Message::select('id','content','leave_at','leave_id','user_id')->where('user_id', $user_id)->paginate(10);
+//        $message = Message::select('id','content','leave_at','leave_id','user_id')->where('user_id', $user_id)->paginate(10);
+        $message = DB::table('messages')
+            ->join('usermsgs', 'messages.user_id', '=', 'usermsgs.user_id')
+            ->select('usermsgs.headerpath', 'usermsgs.username', 'messages.content', 'messages.leave_at')
+            ->orderby('leave_at', 'desc')
+            ->paginate(10);
+
         return $message;
     }
 

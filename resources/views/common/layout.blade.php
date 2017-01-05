@@ -13,6 +13,14 @@
 			<div class="jumbotron">
 			  <div class="container">
 			    <h1>{{ $title }}</h1>
+				<div class="userInfo">
+					<div class="userInfo_left">
+						<h4 style="margin:12px 8px">{{ session('username') }}</h4>
+						<h4 style="margin:12px 8px">{{ session('userSex') }}</h4>
+						<h4 style="margin:12px 8px">{{ session('userAddress') }}</h4>
+					</div>
+					<img src="{!! session('userHeaderPath') !!}" alt="" class="img-thumbnail img-responsive" style="width: 115px;height: 115px;float: right">
+				</div>
 			  </div>
 			</div>
 		@show
@@ -64,9 +72,11 @@
 						  <span class="caret"></span>
 					  </a>
 					  <ul class="dropdown-menu" role="menu">
-						<li><a href="{{ url('setting') }}">个人信息</a></li>
+						<li><a href="{{ url('userMsg') }}">个人信息</a></li>
 						<li class="divider"></li>
 						<li><a href="#">更换头像</a></li>
+						<li class="divider"></li>
+						<li><a href="#">内容管理</a></li>
 						<li class="divider"></li>
 						<li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 					  </ul>

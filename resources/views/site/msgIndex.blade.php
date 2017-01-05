@@ -21,9 +21,10 @@
         </div>
     @else
         @foreach($msg as $key => $value)
-            <div class="container" style="width:70%;border: 2px solid #2fa0ec; box-shadow: rgba(62, 62, 62, 0.87)">
-
-                <blockquote class="">
+            <div class="container" style="width:70%;border-bottom: 2px solid #2fa0ec;margin-top:15px; box-shadow: rgba(62, 62, 62, 0.87)">
+                <img src="{{ $value->headerpath }}" alt="" class="img-thumbnail img-responsive" style="width: 80px;height: 80px;float: left">
+                <span style="margin-top: 5px;margin-left: 5px;float: left">{{ $value->username }}</span>
+                <blockquote style="margin-top: 35px;margin-left: 100px;">
                     {!! $value->content !!}
                     <span style="float: right">
                         {{ date("Y-m-d", $value->leave_at) }}
@@ -32,7 +33,7 @@
 
             </div>
         @endforeach
-        <div class="container" style="width:70%;border: 2px solid #2fa0ec; box-shadow: rgba(62, 62, 62, 0.87)">
+        <div class="container" style="width:70%;">
             {!! $msg->render() !!}
         </div>
     @endif

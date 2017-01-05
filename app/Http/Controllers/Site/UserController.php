@@ -21,9 +21,16 @@ class UserController extends Controller
     {
         $title = '用户信息设置';
         $user = $request->user();
-        $request->session()->put(['user_id' => $user->id, 'username' => $user->name]);
+        $userMsg = Usermsg::getUserMsg($user->id);
+        $request->session()->put([
+            'user_id' => $user->id,
+            'username' => $user->name,
+            'userHeaderPath' => $userMsg->headerpath,
+            'userAddress' => $userMsg->address,
+            'userSex' => $userMsg->sex
+        ]);
 //        print_r($_SESSION['username']);
-        return view('site.userMsgSetting', ['title' => $title]);
+        return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg]);
     }
 
     public function saveUser(Request $request)

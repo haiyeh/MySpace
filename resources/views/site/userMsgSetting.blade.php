@@ -7,13 +7,13 @@
             <input type="hidden" id="_token" value="{{ csrf_token() }}">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
-                <input type="text" id="username" name="username" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" id="username" name="username" value="{{ $userMsg->username }}" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">手机号</label>
             <div class="layui-input-block">
-                <input type="text" id="phonenumber" name="phonenumber" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" id="phonenumber" name="phonenumber" value="{{ $userMsg->phonenumber }}" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
@@ -33,7 +33,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">爱好</label>
             <div class="layui-input-block">
-                <input type="text" id="hobby" name="hobby" class="layui-input">
+                <input type="text" id="hobby" name="hobby" class="layui-input" value="{{ $userMsg->hobby }}">
             </div>
         </div>
         <div class="layui-form-item">
@@ -55,7 +55,7 @@
         <div class="layui-form-item layui-form-text">
             <label class="layui-form-label">自我评价</label>
             <div class="layui-input-block">
-                <textarea name="desc" id="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+                <textarea name="desc" id="desc" placeholder="请输入内容" class="layui-textarea">{{ $userMsg->desc }}</textarea>
             </div>
         </div>
         <div class="layui-form-item">
