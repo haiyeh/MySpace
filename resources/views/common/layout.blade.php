@@ -11,17 +11,17 @@
 	<body>
 		@section('top')
 			<div class="jumbotron">
-			  <div class="container">
-			    <h1>{{ $title }}</h1>
-				<div class="userInfo">
-					<div class="userInfo_left">
-						<h4 style="margin:12px 8px">{{ session('username') }}</h4>
-						<h4 style="margin:12px 8px">{{ session('userSex') }}</h4>
-						<h4 style="margin:12px 8px">{{ session('userAddress') }}</h4>
+			  	<div class="container">
+			    	<h1>{{ $title }}</h1>
+					<div class="userInfo">
+						<div class="userInfo_left">
+							<h4 style="margin:12px 8px">{{ session('username') }}</h4>
+							<h4 style="margin:12px 8px">{{ session('userSex') }}</h4>
+							<h4 style="margin:12px 8px">{{ session('userAddress') }}</h4>
+						</div>
+						<img src="{!! session('userHeaderPath') !!}" alt="" class="img-thumbnail img-responsive" style="width: 115px;height: 115px;float: right">
 					</div>
-					<img src="{!! session('userHeaderPath') !!}" alt="" class="img-thumbnail img-responsive" style="width: 115px;height: 115px;float: right">
-				</div>
-			  </div>
+			  	</div>
 			</div>
 		@show
 

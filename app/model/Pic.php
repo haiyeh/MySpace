@@ -52,4 +52,9 @@ class Pic extends Model
         return $res;
     }
 
+    public static function getImageCount()
+    {
+        return Pic::count();
+    }
+
 }

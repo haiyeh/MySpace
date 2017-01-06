@@ -1,0 +1,139 @@
+.admin_top{
+    width: 100%;
+    height: 70px;
+    background-color: #428bca;
+    float: left;
+}
+
+.admin_top_left{
+    width: 13%;
+    height: 70px;
+    background-color:#009688;
+    float: left;
+    text-align: center;
+}
+
+.admin_top_right{
+    width:8%;
+    height:35px;
+    padding-top: 17.5px;
+    float: right;
+    cursor: pointer;
+}
+
+.admin_left{
+    width: 13%;
+    height: 903px;
+    background-color: #393D49;
+    float: left;
+}
+
+.admin_right{
+    width: 87%;
+    float: right;
+}
+
+.admin_bottom{
+    width: 100%;
+    height:20px;
+    background-color: #eee;
+}
+
+.admin_right_diary{
+    width:20%;
+    height:150px;
+    float: left;
+    margin-left: 4%;
+    margin-top: 1%;
+    background-color: #01AAED;
+}
+.admin_right_diary_div{
+    width: 100%;
+    height:25px;
+    margin-top: 36px;
+    text-align: center;
+    background-color: #1ab7ea;
+}
+
+.admin_right_say{
+    width:20%;
+    height:150px;
+    float: left;
+    margin-left: 4%;
+    margin-top: 1%;
+    background-color: #5FB878;
+}
+.admin_right_say_div{
+    width: 100%;
+    height:25px;
+    margin-top: 36px;
+    text-align: center;
+    background-color: #00a157;
+}
+
+.admin_right_message{
+    width:20%;
+    height:150px;
+    float: left;
+    margin-left: 4%;
+    margin-top: 1%;
+    background-color: #F7B824;
+}
+.admin_right_message_div{
+    width: 100%;
+    height:25px;
+    margin-top: 36px;
+    text-align: center;
+    background-color: rgba(229, 169, 56, 0.93);
+}
+
+.admin_right_image{
+    width:20%;
+    height:150px;
+    float: left;
+    margin-left: 4%;
+    margin-top: 1%;
+    background-color: #FF5722;
+}
+
+.admin_right_image_div{
+    width: 100%;
+    height:25px;
+    margin-top: 36px;
+    text-align: center;
+    background-color: rgba(229, 87, 22, 0.93);
+}
+
+.admin_right_first_tab{
+    width:43.5%;
+    margin-left: 4.5%;
+    margin-top:50px;
+    float: left;
+}
+
+.admin_right_second_tab{
+    width:43.5%;
+    margin-left: 4%;
+    margin-top:50px;
+    float: left;
+}
+
+.admin_right_third_tab{
+    width:43.5%;
+    margin-left: 4.5%;
+    margin-top:50px;
+    float: left;
+}
+
+.admin_right_fourth_tab{
+    width:43.5%;
+    margin-left: 4%;
+    margin-top:50px;
+    float: left;
+}
+
+.tab_name{
+    width:100%;
+    height:25px;
+    border-bottom:1px solid #F2F2F2;
+}

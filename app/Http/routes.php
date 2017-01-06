@@ -41,3 +41,7 @@ Route::group(['namespace' => 'Site'], function(){
     Route::get('message', ['as' => 'message', 'uses' => 'MessageController@index']);
     Route::any('storeMessage', ['as' => 'storeMessage', 'uses' => 'MessageController@storeMessage']);
 });
+
+Route::group(['namespace' => 'Admin'], function (){
+    Route::get('admin', ['as' => 'admin', 'uses' => 'AdminController@index']);
+});

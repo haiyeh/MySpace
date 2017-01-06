@@ -29,4 +29,14 @@ class Message extends Model
         return $message;
     }
 
+    public static function getAllMessage()
+    {
+        return Message::select('id', 'content', 'leave_at')->orderby('leave_at', 'desc')->paginate(6);
+    }
+
+    public static function getMessageCount()
+    {
+        return Message::count();
+    }
+
 }

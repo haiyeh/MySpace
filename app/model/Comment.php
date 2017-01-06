@@ -21,4 +21,10 @@ class Comment extends Model
     {
         return Comment::where(['type' => $type, 'bid' => $bid])->orderby('comment_at', 'desc')->paginate(10);
     }
+
+    public static function getAllComment()
+    {
+        return Comment::select('id', 'content', 'comment_at')->orderby('comment_at', 'desc')->paginate(6);
+    }
+
 }

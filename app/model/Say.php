@@ -10,7 +10,7 @@ class Say extends Model
 {
     public static function getAllSay()
     {
-    	$say = Say::orderby('published_at', 'desc')->paginate(5);
+    	$say = Say::orderby('published_at', 'desc')->paginate(6);
     	return $say;
     }
 

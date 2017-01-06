@@ -8,8 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "qiniu/php-sdk": "^7.1",
-        "kartik-v/bootstrap-fileinput": "dev-master",
-        "encore/laravel-admin": "1.1.x-dev"
+        "kartik-v/bootstrap-fileinput": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
