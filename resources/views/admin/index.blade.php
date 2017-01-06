@@ -33,7 +33,7 @@
     <div class="admin_right_first_tab">
         <div class="tab_name"><b>日志</b></div>
         <div class="layui-tab layui-tab-card">
-            <div class="layui-tab-content" style="height: 100px;">
+            <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
                         <colgroup>
@@ -50,7 +50,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($diary as $item)
+                        @foreach($diary as $key => $item)
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->title }}</td>
@@ -68,7 +68,7 @@
     <div class="admin_right_second_tab">
         <div class="tab_name"><b>说说</b></div>
         <div class="layui-tab layui-tab-card">
-            <div class="layui-tab-content" style="height: 100px;">
+            <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
                         <colgroup>
@@ -85,7 +85,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($say as $item2)
+                        @foreach($say as $key => $item2)
                         <tr>
                             <td>{{ $item2->id }}</td>
                             <td>{!! $item2->content !!}</td>
@@ -103,7 +103,7 @@
     <div class="admin_right_third_tab">
         <div class="tab_name"><b>评论</b></div>
         <div class="layui-tab layui-tab-card">
-            <div class="layui-tab-content" style="height: 100px;">
+            <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
                         <colgroup>
@@ -120,7 +120,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($comment as $item3)
+                        @foreach($comment as $key => $item3)
                         <tr>
                             <td>{{ $item3->id }}</td>
                             <td>{!! $item3->content !!}</td>
@@ -138,7 +138,7 @@
     <div class="admin_right_fourth_tab">
         <div class="tab_name"><b>留言</b></div>
         <div class="layui-tab layui-tab-card">
-            <div class="layui-tab-content" style="height: 100px;">
+            <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
                         <colgroup>
@@ -155,7 +155,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($message as $item4)
+                        @foreach($message as $key => $item4)
                         <tr>
                             <td>{{ $item4->id }}</td>
                             <td>{!! $item4->content !!}</td>
@@ -168,5 +168,8 @@
                 </div>
             </div>
         </div>
+        {{--<div class="page">--}}
+            {{--{!! $message->render() !!}--}}
+        {{--</div>--}}
     </div>
 @endsection

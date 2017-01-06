@@ -25,7 +25,6 @@ class AdminController extends Controller
         $diaryCount = Diary::getDiaryCount();
         $say = Say::getAllSay();
         $sayCount = Say::getSayCount();
-//        var_dump($sayCount);die;
         $message = Message::getAllMessage();
         $messageCount = Message::getMessageCount();
         $comment = Comment::getAllComment();

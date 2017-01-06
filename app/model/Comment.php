@@ -24,7 +24,8 @@ class Comment extends Model
 
     public static function getAllComment()
     {
-        return Comment::select('id', 'content', 'comment_at')->orderby('comment_at', 'desc')->paginate(6);
+        return Comment::select('id', 'content', 'comment_at')->orderby('comment_at')->paginate(6);
     }
+
 
 }
