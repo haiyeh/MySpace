@@ -46,7 +46,6 @@
                             <th>编号</th>
                             <th>标题</th>
                             <th>发布时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -55,7 +54,6 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->title }}</td>
                             <td>{{ $item->published_at }}</td>
-                            <td></td>
                         </tr>
                         @endforeach
                         </tbody>
@@ -81,7 +79,6 @@
                             <th>编号</th>
                             <th>说说</th>
                             <th>发布时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -90,7 +87,6 @@
                             <td>{{ $item2->id }}</td>
                             <td>{!! $item2->content !!}</td>
                             <td>{{ $item2->published_at }}</td>
-                            <td></td>
                         </tr>
                         @endforeach
                         </tbody>
@@ -116,7 +112,6 @@
                             <th>编号</th>
                             <th>评论</th>
                             <th>评论时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -125,7 +120,6 @@
                             <td>{{ $item3->id }}</td>
                             <td>{!! $item3->content !!}</td>
                             <td>{{ $item3->comment_at }}</td>
-                            <td></td>
                         </tr>
                         @endforeach
                         </tbody>
@@ -151,7 +145,6 @@
                             <th>编号</th>
                             <th>留言</th>
                             <th>留言时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -160,7 +153,6 @@
                             <td>{{ $item4->id }}</td>
                             <td>{!! $item4->content !!}</td>
                             <td>{{ $item4->leave_at }}</td>
-                            <td></td>
                         </tr>
                         @endforeach
                         </tbody>

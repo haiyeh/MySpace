@@ -15,7 +15,7 @@
     @section('admin_top')
         <div class="admin_top">
             <div class="admin_top_left">
-                <h2 style="color: #ffffff;">内容管理系统</h2>
+                <h3 style="color: #ffffff;">内容管理系统</h3>
             </div>
             <div class="admin_top_right">
                 <img src="http://localhost/Upload/2016-12-29/default.jpg" class="img-circle" style="width: 35px;height: 35px;">
