@@ -46,7 +46,6 @@
                             <th>编号</th>
                             <th>标题</th>
                             <th>发布时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -54,8 +53,12 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->title }}</td>
+<<<<<<< HEAD
                             <td>{{ date("Y-m-d", $item->published_at) }}</td>
                             <td></td>
+=======
+                            <td>{{ $item->published_at }}</td>
+>>>>>>> 82ebfe60ccc62d7ff091e3188c4896a8cc0f90fa
                         </tr>
                         @endforeach
                         </tbody>
@@ -81,7 +84,6 @@
                             <th>编号</th>
                             <th>说说</th>
                             <th>发布时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -89,8 +91,12 @@
                         <tr>
                             <td>{{ $item2->id }}</td>
                             <td>{!! $item2->content !!}</td>
+<<<<<<< HEAD
                             <td>{{ date("Y-m-d", $item2->published_at) }}</td>
                             <td></td>
+=======
+                            <td>{{ $item2->published_at }}</td>
+>>>>>>> 82ebfe60ccc62d7ff091e3188c4896a8cc0f90fa
                         </tr>
                         @endforeach
                         </tbody>
@@ -116,7 +122,6 @@
                             <th>编号</th>
                             <th>评论</th>
                             <th>评论时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -124,8 +129,12 @@
                         <tr>
                             <td>{{ $item3->id }}</td>
                             <td>{!! $item3->content !!}</td>
+<<<<<<< HEAD
                             <td>{{ date("Y-m-d", $item3->comment_at) }}</td>
                             <td></td>
+=======
+                            <td>{{ $item3->comment_at }}</td>
+>>>>>>> 82ebfe60ccc62d7ff091e3188c4896a8cc0f90fa
                         </tr>
                         @endforeach
                         </tbody>
@@ -151,7 +160,6 @@
                             <th>编号</th>
                             <th>留言</th>
                             <th>留言时间</th>
-                            <th>编辑</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -159,8 +167,12 @@
                         <tr>
                             <td>{{ $item4->id }}</td>
                             <td>{!! $item4->content !!}</td>
+<<<<<<< HEAD
                             <td>{{ date("Y-m-d", $item4->leave_at) }}</td>
                             <td></td>
+=======
+                            <td>{{ $item4->leave_at }}</td>
+>>>>>>> 82ebfe60ccc62d7ff091e3188c4896a8cc0f90fa
                         </tr>
                         @endforeach
                         </tbody>
