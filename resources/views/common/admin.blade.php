@@ -30,7 +30,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="{{ url('admin') }}">首页</a>
                 </li>
-                <li class="layui-nav-item layui-nav-itemed">
+                <li class="layui-nav-item">
                     <a href="javascript:;">日志管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="{{ url('admin/diary') }}">日志列表</a></dd>
@@ -87,5 +87,11 @@
     <script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/lay.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        $("li").on('click', function () {
+            $("li").removeClass('layui-nav-itemed');
+            $(this).addClass('layui-nav-itemed');
+        });
+    </script>
 </body>
 </html>
