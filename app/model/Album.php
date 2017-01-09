@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 class Album extends Model
 {
-    public static function storeAlbum($name,$type,$desc,$status)
+    public static function storeAlbum($name, $type, $desc, $status)
     {
     	$album = new Album;
     	$album->album_name = $name;
@@ -18,6 +18,16 @@ class Album extends Model
     	
     	$res = $album->save();
     	return $res;
+    }
+
+    public static function updateAlbum($id, $name, $type, $desc, $status)
+    {
+        return  Album::where('id', $id)
+            ->update(['album_name' => $name,
+                'type' => $type,
+                'desc' => $desc,
+                'status' => $status
+            ]);
     }
 
     public static function getAlbums()
@@ -54,4 +64,15 @@ class Album extends Model
             return $album_name->album_name;
         }
     }
+
+    public static function getAlbumMsg($id)
+    {
+        return Album::where('id', $id)->first();
+    }
+
+    public static function delAlbum($id)
+    {
+        return Album::where('id', $id)->delete();
+    }
+
 }

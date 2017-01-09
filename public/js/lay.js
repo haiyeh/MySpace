@@ -311,6 +311,198 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 	  	] 
 	});
 
+
+	/* admin */
+
+	form.on('submit(album_look)', function () {
+		var url = $("#album_look").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{id:id},
+			success:function (res) {
+				if(res == 0){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('信息为空，请确认数据是否存在', {
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,title: '错误',
+							icon: 5
+						});
+					})
+				}else {
+					var msg = jQuery.parseJSON(res);
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert(msg.album_desc, {
+							title: '相册描述',
+							icon: 6
+						});
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序出错', {
+						skin: 'layui-layer-molv' //样式类名
+						,closeBtn: 1
+						,title: '错误',
+						icon: 5
+					});
+				})
+			}
+		});
+	});
+
+	form.on('submit(album_edit)', function () {
+		var url = $("#album_edit").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{id:id},
+			success:function (res) {
+				if (res == 0){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('信息为空，请确认数据是否存在', {
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,title: '错误',
+							icon: 5
+						});
+					})
+				}else{
+					var msg = jQuery.parseJSON(res);
+					layer.open({
+						type: 1,
+						title: '相册编辑',
+						closeBtn: 1,
+						shadeClose: true,
+						skin: 'album_edit',
+						content:
+						'<div class="layui-form-item">'+
+						'<label class="layui-form-label">名称</label>'+
+						'<div class="layui-input-block">'+
+						'<input type="text" name="album_name" id="album_name" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="'+msg.album_name+'">'+
+						'</div>'+
+						'</div>'+
+						'<div class="layui-form-item">'+
+						'<label class="layui-form-label">状态</label>'+
+						'<div class="layui-input-block">'+
+						'<input type="hidden" id="id" value="'+msg.album_id+'">'+
+						'<input type="hidden" id="url" value="'+msg.album_url+'">'+
+						'<input type="hidden" id="_token" value="'+msg.album_token+'">'+
+						'<input type="text" name="status" id="album_status" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="'+msg.album_status+'">'+
+						'</div>'+
+						'</div>'+
+						'<div class="layui-form-item">'+
+						'<label class="layui-form-label">类型</label>'+
+						'<div class="layui-input-block">'+
+						'<input type="text" name="type" id="album_type" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="'+msg.album_type+'">'+
+						'</div>'+
+						'</div>'+
+						'<div class="layui-form-item">'+
+						'<label class="layui-form-label">描述</label>'+
+						'<div class="layui-input-block">'+
+						'<input type="text" name="desc" id="album_desc" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="'+msg.album_desc+'">'+
+						'</div>'+
+						'</div>'+
+						'<button class="btn btn-primary btn-block" lay-submit lay-filter="editAlbumSave">保存</button>'
+					});
+				}
+			}
+		});
+	});
+
+	form.on('submit(album_delete)', function () {
+		var url = $("#album_delete").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{id:id},
+			success:function (res) {
+				if (res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						}, function () {
+							window.location.reload();
+						});
+					})
+
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('删除失败');
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.msg('程序出错，正在紧急抢救中...');
+				})
+			}
+		});
+	});
+
+	form.on('submit(editAlbumSave)', function () {
+		var album_name = $("#album_name").val();
+		var type = $("#album_type").val();
+		var status = $("#album_status").val();
+		var desc = $("#album_desc").val();
+		var _token = $("#_token").val();
+		var url = $("#url").val();
+		var id = $("#id").val();
+
+		$.ajax({
+			url:url,
+			type:'post',
+			data:{'album_name':album_name,'type':type,'desc':desc,'status':status,'_token':_token,'id':id},
+			success:function (res) {
+				if (res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						}, function () {
+							window.location.reload();
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存失败',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:5
+						});
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序出错，正在紧急抢修中...',{
+						skin: 'layui-layer-lan' //样式类名
+						,closeBtn: 1
+						,icon:2
+					});
+				})
+			}
+		});
+	});
+
 });
 
 function comment(){

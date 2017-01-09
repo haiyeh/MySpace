@@ -80,6 +80,19 @@ return [
             'url_type'  => 'publicURL',
         ],
 
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => 'ois6b6uth.bkt.clouddn.com', //你的七牛域名
+                'https'     => '',         //你的HTTPS域名
+                'custom'    => '',     //你的自定义域名
+            ],
+            'access_key'=> 'Vhn30vRbn0YTOZJZjBrrpO50uK2KR1-KrFAhKHt_',  //AccessKey
+            'secret_key'=> 'bWQfQz22lPa-9PpolcDgvY8fP8mq2M4IswaNO09u',  //SecretKey
+            'bucket'    => 'laravel',  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址
+        ],
+
     ],
 
 ];

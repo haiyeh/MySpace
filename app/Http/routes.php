@@ -40,6 +40,9 @@ Route::group(['namespace' => 'Site'], function(){
     Route::any('userMsg', 'UserController@userMsg');
     Route::get('message', ['as' => 'message', 'uses' => 'MessageController@index']);
     Route::any('storeMessage', ['as' => 'storeMessage', 'uses' => 'MessageController@storeMessage']);
+    Route::group(['middleware' => 'auth'], function(){
+
+    });
 });
 
 Route::group(['namespace' => 'Admin'], function (){
@@ -50,4 +53,8 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin/image', ['as' => 'image' , 'uses' => 'PicController@index']);
     Route::get('admin/album', ['as' => 'album' , 'uses' => 'PicController@album']);
     ROute::get('admin/message', ['as' => 'message', 'uses' => 'MessageController@index']);
+    Route::get('admin/getAlbumMsg', ['as' => 'getAlbumMsg' , 'uses' => 'PicController@getAlbumMsg']);
+    Route::get('admin/getAlbumDelete', ['as' => 'getAlbumDelete' , 'uses' => 'PicController@getAlbumDelete']);
+    Route::get('admin/getAlbumEdit', ['as' => 'getAlbumEdit' , 'uses' => 'PicController@getAlbumEdit']);
+    Route::any('admin/editAlbumStore', ['as' => 'editAlbumStore' , 'uses' => 'PicController@editAlbumStore']);
 });
