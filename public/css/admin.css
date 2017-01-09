@@ -21,9 +21,10 @@
     cursor: pointer;
 }
 
+
 .admin_left{
     width: 13%;
-    height: 903px;
+    height: 883px;
     background-color: #393D49;
     float: left;
 }
@@ -36,6 +37,8 @@
 .admin_bottom{
     width: 100%;
     height:20px;
+    float: left;
+    text-align: center;
     background-color: #eee;
 }
 
@@ -136,4 +139,14 @@
     width:100%;
     height:25px;
     border-bottom:1px solid #F2F2F2;
+}
+
+.admin_right_diary_list{
+    width: 80%;
+    text-align: center;
+    margin:40px auto;
+}
+
+th{
+    text-align: center;
 }

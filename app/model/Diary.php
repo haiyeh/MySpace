@@ -22,7 +22,7 @@ class Diary extends Model
 
     public static function getAllDiary()
     {
-    	$diary = Diary::where('published_at', '<=', time())->orderby('published_at', 'desc')->paginate(6);
+    	$diary = Diary::where('published_at', '<=', time())->paginate(6);
     	return $diary;
     }
 

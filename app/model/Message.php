@@ -31,7 +31,7 @@ class Message extends Model
 
     public static function getAllMessage()
     {
-        return Message::select('id', 'content', 'leave_at')->orderby('leave_at', 'desc')->paginate(6);
+        return Message::select('id', 'content', 'leave_at')->paginate(6);
     }
 
     public static function getMessageCount()

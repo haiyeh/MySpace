@@ -30,6 +30,11 @@ class Album extends Model
         }
     }
 
+    public static function getAllAlbum()
+    {
+        return Album::paginate(6);
+    }
+
     public static function getAlbumId()
     {
         $id = Album::select('id')->get();

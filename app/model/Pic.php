@@ -57,4 +57,9 @@ class Pic extends Model
         return Pic::count();
     }
 
+    public static function getAllImage()
+    {
+        return Pic::paginate(8);
+    }
+
 }

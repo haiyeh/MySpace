@@ -44,4 +44,10 @@ Route::group(['namespace' => 'Site'], function(){
 
 Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin', ['as' => 'admin', 'uses' => 'AdminController@index']);
+    Route::get('admin/diary', ['as' => 'diary' , 'uses' => 'DiaryController@index']);
+    Route::get('admin/comment', ['as' => 'comment' , 'uses' => 'CommentController@index']);
+    Route::get('admin/say', ['as' => 'say' , 'uses' => 'SayController@index']);
+    Route::get('admin/image', ['as' => 'image' , 'uses' => 'PicController@index']);
+    Route::get('admin/album', ['as' => 'album' , 'uses' => 'PicController@album']);
+    ROute::get('admin/message', ['as' => 'message', 'uses' => 'MessageController@index']);
 });

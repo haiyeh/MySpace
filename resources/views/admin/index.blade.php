@@ -5,28 +5,28 @@
         <h1 style="color: #ffffff;margin-left: 10px;">{{ $diaryCount }}</h1>
         <p style="color: #ffffff;margin-left: 10px;"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;日志</p>
         <div class="admin_right_diary_div">
-            <a href="" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+            <a href="#" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
         </div>
     </div>
     <div class="admin_right_say">
         <h1 style="color: #ffffff;margin-left: 10px;">{{ $sayCount }}</h1>
         <p style="color: #ffffff;margin-left: 10px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;说说</p>
         <div class="admin_right_say_div">
-            <a href="" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+            <a href="#" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
         </div>
     </div>
     <div class="admin_right_message">
         <h1 style="color: #ffffff;margin-left: 10px;">{{ $messageCount }}</h1>
         <p style="color: #ffffff;margin-left: 10px;"><span class="glyphicon glyphicon-envelope"></span>&nbsp;留言</p>
         <div class="admin_right_message_div">
-            <a href="" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+            <a href="#" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
         </div>
     </div>
     <div class="admin_right_image">
         <h1 style="color: #ffffff;margin-left: 10px;">{{ $imageCount }}</h1>
         <p style="color: #ffffff;margin-left: 10px;"><span class="glyphicon glyphicon-picture"></span>&nbsp;图片</p>
         <div class="admin_right_image_div">
-            <a href="" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+            <a href="#" style="color: #ffffff">More&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></a>
         </div>
     </div>
 
@@ -54,7 +54,7 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->title }}</td>
-                            <td>{{ $item->published_at }}</td>
+                            <td>{{ date("Y-m-d", $item->published_at) }}</td>
                             <td></td>
                         </tr>
                         @endforeach
@@ -89,7 +89,7 @@
                         <tr>
                             <td>{{ $item2->id }}</td>
                             <td>{!! $item2->content !!}</td>
-                            <td>{{ $item2->published_at }}</td>
+                            <td>{{ date("Y-m-d", $item2->published_at) }}</td>
                             <td></td>
                         </tr>
                         @endforeach
@@ -124,7 +124,7 @@
                         <tr>
                             <td>{{ $item3->id }}</td>
                             <td>{!! $item3->content !!}</td>
-                            <td>{{ $item3->comment_at }}</td>
+                            <td>{{ date("Y-m-d", $item3->comment_at) }}</td>
                             <td></td>
                         </tr>
                         @endforeach
@@ -159,7 +159,7 @@
                         <tr>
                             <td>{{ $item4->id }}</td>
                             <td>{!! $item4->content !!}</td>
-                            <td>{{ $item4->leave_at }}</td>
+                            <td>{{ date("Y-m-d", $item4->leave_at) }}</td>
                             <td></td>
                         </tr>
                         @endforeach
