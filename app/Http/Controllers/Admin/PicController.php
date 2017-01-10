@@ -105,4 +105,17 @@ class PicController extends Controller
             return 0;
         }
     }
+
+    public function imageDel(Request $request)
+    {
+        $id = $request->id;
+        $res = Pic::imageDel($id);
+
+        if ($res){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
 }

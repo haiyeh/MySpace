@@ -62,4 +62,8 @@ class Pic extends Model
         return Pic::paginate(8);
     }
 
+    public static function imageDel($id)
+    {
+        return Pic::destroy($id);
+    }
 }

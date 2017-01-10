@@ -312,6 +312,11 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 	});
 
 
+	layer.photos({
+		photos: '#layer-photos-demo'
+		,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	});
+
 	/* admin */
 
 	/* diary */
@@ -452,6 +457,66 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 					});
 				})
 			}
+		});
+	});
+
+	/* image */
+	form.on('submit(image_delete)', function () {
+		var url = $("#url").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{'id':id},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功', {
+							icon: 1,
+							title: '成功',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						}, function () {
+							window.location.reload();
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除失败，请重试', {
+							icon: 5,
+							title: '失败',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						});
+					})
+				}
+			},
+			error: function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序错误,正在紧急修复中...', {
+						icon: 2,
+						title: 'error',
+						closeBtn: 1
+					});
+				})
+			}
+		});
+	});
+	
+	form.on('submit(image_look)', function () {
+		var img = $(this).parent('td').prev().prev().prev().text();
+		layer.open({
+			type: 1,
+			title: false,
+			closeBtn: 1,
+			area: '800px',
+			skin: 'layui-layer-nobg', //没有背景色
+			shadeClose: true,
+			content: '<img src="'+img+'">'
 		});
 	});
 

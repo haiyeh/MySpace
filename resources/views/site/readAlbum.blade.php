@@ -18,10 +18,11 @@
     <a class="btn btn-primary" href="{{ url('picture') }}"><span class="glyphicon glyphicon-circle-arrow-left"></span>返回</a>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row" id="layer-photos-demo">
         @foreach($data as $item)
         <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail"><img src="{{ $item->imgpath }}" alt=""></a>
+            {{--<a href="#" class="thumbnail"><img src="{{ $item->imgpath }}" alt=""></a>--}}
+            <img layer-pid="" layer-src="{{ $item->imgpath }}" src="{{ $item->imgpath }}" style="width: 260px;height: 200px;margin-top: 20px;border-radius: 5px;cursor: pointer;">
         </div>
         @endforeach
     </div>
@@ -36,14 +37,5 @@
 <script type="text/javascript" src="{{ asset('bootstrap/upload/js/fileinput.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bootstrap/upload/js/locales/zh.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/uploadify.js') }}"></script>
-<script type="text/javascript">
-    layui.use('layer', function () {
-        var layer = layui.layer;
-        layer.photos({
-            photos: '#{{ $item->imgpath }}'
-            ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
-        });
-    })
-</script>
 </body>
 </html>

@@ -32,6 +32,10 @@ class PicController extends Controller
             $data[$key]['album_name'] = $value[0]->album_name;
             $data[$key]['desc'] = $value[0]->desc;
         }
+
+        if (empty($data)){
+            $data = array();
+        }
         return view('site/picture', [
             'title' => 'picture',
             'data' => $data

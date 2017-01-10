@@ -41,7 +41,6 @@ Route::group(['namespace' => 'Site'], function(){
     Route::get('message', ['as' => 'message', 'uses' => 'MessageController@index']);
     Route::any('storeMessage', ['as' => 'storeMessage', 'uses' => 'MessageController@storeMessage']);
     Route::group(['middleware' => 'auth'], function(){
-
     });
 });
 
@@ -64,4 +63,5 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin/getSayEdit/{id}', 'SayController@getSayEdit');
     Route::get('admin/commentDel', 'CommentController@commentDel');
     Route::get('admin/messageDel', 'MessageController@messageDel');
+    Route::get('admin/imageDel', 'PicController@imageDel');
 });

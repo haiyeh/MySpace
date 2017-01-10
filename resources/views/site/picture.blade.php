@@ -10,7 +10,7 @@
              <div class="col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <a href="{{ url('pic/readAlbum').'/'.$value['album_id'] }}" class="thumbnail">
-                        <img src="{{ $value['imgpath'] }}" alt="">
+                        <img src="{{ $value['imgpath'] }}">
                     </a>
                     <div class="caption">
                         <h3>{{ $value['album_name'] }}</h3>

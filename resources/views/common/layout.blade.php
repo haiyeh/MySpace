@@ -76,7 +76,7 @@
 						<li class="divider"></li>
 						<li><a href="#">更换头像</a></li>
 						<li class="divider"></li>
-						<li><a href="#">内容管理</a></li>
+						<li><a href="{{ url('admin') }}">内容管理</a></li>
 						<li class="divider"></li>
 						<li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 					  </ul>
