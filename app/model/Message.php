@@ -39,4 +39,9 @@ class Message extends Model
         return Message::count();
     }
 
+    public static function messageDel($id)
+    {
+        return Message::destroy($id);
+    }
+
 }

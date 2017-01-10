@@ -57,4 +57,11 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin/getAlbumDelete', ['as' => 'getAlbumDelete' , 'uses' => 'PicController@getAlbumDelete']);
     Route::get('admin/getAlbumEdit', ['as' => 'getAlbumEdit' , 'uses' => 'PicController@getAlbumEdit']);
     Route::any('admin/editAlbumStore', ['as' => 'editAlbumStore' , 'uses' => 'PicController@editAlbumStore']);
+    Route::get('admin/getDiaryMsg/{id}', ['as' => 'getDiaryMsg' , 'uses' => 'DiaryController@getDiaryMsg']);
+    Route::get('admin/getDiaryEdit/{id}', ['as' => 'getDiaryEdit' , 'uses' => 'DiaryController@getDiaryEdit']);
+    Route::get('admin/getDiaryDelete', ['as' => 'getDiaryDelete' , 'uses' => 'DiaryController@getDiaryDelete']);
+    Route::get('admin/sayDelete', 'SayController@sayDelete');
+    Route::get('admin/getSayEdit/{id}', 'SayController@getSayEdit');
+    Route::get('admin/commentDel', 'CommentController@commentDel');
+    Route::get('admin/messageDel', 'MessageController@messageDel');
 });

@@ -50,4 +50,10 @@ class Diary extends Model
     		return false;
     	}
     }
+
+    public static function delDiary($id)
+    {
+        return Diary::destroy($id);
+    }
+
 }

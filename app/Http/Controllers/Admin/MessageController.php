@@ -10,15 +10,23 @@ use App\Http\Controllers\Controller;
 
 class MessageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $message = Message::getAllMessage();
         return view('admin.message', ['message' => $message, 'title' => '留言列表']);
+    }
+
+    public function messageDel(Request $request)
+    {
+        $id = $request->id;
+        $res = Message::messageDel($id);
+
+        if ($res){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
 }

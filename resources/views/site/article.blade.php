@@ -1,7 +1,7 @@
 @extends('common.layout')
 
 @section('siteleft')
-	<a href="{{ url('diary') }}" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>返回</a>
+	<a href="#" onclick="history.back(-1)" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>返回</a>
 
 		<div class="page-header">
 			<input type="hidden" id="url" value="{{ url('praise') }}">

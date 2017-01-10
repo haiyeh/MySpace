@@ -32,4 +32,14 @@ class Say extends Model
     		return false;
     	}
     }
+
+    public static function getOneSay($id)
+    {
+        return Say::where('id', $id)->first();
+    }
+
+    public static function sayDelete($id)
+    {
+        return Say::destroy($id);
+    }
 }

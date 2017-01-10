@@ -27,5 +27,9 @@ class Comment extends Model
         return Comment::select('id', 'content', 'comment_at')->orderby('comment_at')->paginate(6);
     }
 
+    public static function delComment($id)
+    {
+        return Comment::destroy($id);
+    }
 
 }

@@ -314,6 +314,196 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 
 	/* admin */
 
+	/* diary */
+	form.on('submit(diary_delete)', function () {
+		var url = $("#diary_delete").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+
+		$.ajax({
+			url: url,
+			type: 'get',
+			data: {'id':id},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功', {
+							icon: 1,
+							title: '成功',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						}, function () {
+							window.location.reload();
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除失败，请重试', {
+							icon: 5,
+							title: '失败',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						});
+					})
+				}
+			},
+			error: function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序错误,正在紧急修复中...', {
+						icon: 2,
+						title: 'error',
+						closeBtn: 1
+					});
+				})
+			}
+		});
+	});
+
+	/* say */
+	form.on('submit(say_delete)', function () {
+		var url = $("#url").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{'id':id},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功', {
+							icon: 1,
+							title: '成功',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						}, function () {
+							window.location.reload();
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除失败，请重试', {
+							icon: 5,
+							title: '失败',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						});
+					})
+				}
+			},
+			error: function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序错误,正在紧急修复中...', {
+						icon: 2,
+						title: 'error',
+						closeBtn: 1
+					});
+				})
+			}
+		});
+	});
+
+	/* comment */
+	form.on('submit(comment_delete)', function () {
+		var url = $("#url").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{'id':id},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功', {
+							icon: 1,
+							title: '成功',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						}, function () {
+							window.location.reload();
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除失败，请重试', {
+							icon: 5,
+							title: '失败',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						});
+					})
+				}
+			},
+			error: function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序错误,正在紧急修复中...', {
+						icon: 2,
+						title: 'error',
+						closeBtn: 1
+					});
+				})
+			}
+		});
+	});
+
+	/* message */
+	form.on('submit(message_delete)', function () {
+		var url = $("#url").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{'id':id},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功', {
+							icon: 1,
+							title: '成功',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						}, function () {
+							window.location.reload();
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除失败，请重试', {
+							icon: 5,
+							title: '失败',
+							skin: 'layui-layer-molv',
+							closeBtn: 1
+						});
+					})
+				}
+			},
+			error: function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序错误,正在紧急修复中...', {
+						icon: 2,
+						title: 'error',
+						closeBtn: 1
+					});
+				})
+			}
+		});
+	});
+
+
+	/* album */
 	form.on('submit(album_look)', function () {
 		var url = $("#album_look").val();
 		var id = $(this).parent('td').parent('tr').attr('id');
