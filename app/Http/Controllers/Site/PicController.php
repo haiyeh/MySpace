@@ -11,7 +11,6 @@ use App\Http\Requests;
 use Storage;
 use Qiniu\Auth;
 use App\model\Pic;
-use Qiniu\Storage\UploadManager;
 use App\Http\Controllers\Controller;
 
 
@@ -95,6 +94,10 @@ class PicController extends Controller
     public function uploadify(Request $request)
     {
         $album_id = $request->album_id;
+
+        if (empty($album_id)){
+            return "<h3>您还没有选择相册</h3><hr>";
+        }
         if ($request->hasFile('file')){
             $foldName = date("Y-m-d", time());
 
@@ -134,15 +137,11 @@ class PicController extends Controller
 //                }
 //            }
 
-            return "上传成功";
+            return "<h3>上传成功</h3><hr>";
 
         }
 
     }
 
-    /*上传图片到七牛云*/
-    public function UploadQiniu($imagePath)
-    {
-    }
 
 }
