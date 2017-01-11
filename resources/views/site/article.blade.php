@@ -11,7 +11,7 @@
 				<span class="glyphicon glyphicon-thumbs-up"></span>
 				<span class="badge" id="show">
 				@if(is_object($praiseCount) && !empty($praiseCount))
-						{{ $praiseCount->count }}
+						{{ $praiseCount->praises }}
 					@else
 						{{ $praiseCount }}
 					@endif

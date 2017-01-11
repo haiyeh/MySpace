@@ -17,6 +17,8 @@ class CreateDiaryTable extends Migration
             $table->string('title', 30);
             $table->text('content');
             $table->bigInteger('published_at');
+            $table->integer('click');
+            $table->integer('praises');
             $table->timestamps();
         });
     }

@@ -35,7 +35,7 @@ class SiteController extends Controller
         $bid = $request->bid;
         $res = Praise::doPraise($type, $bid);
         $praiseCount = Praise::getPraiseCount($type, $bid);
-        $count = $praiseCount->count;
+        $count = $praiseCount->praises;
 
         if ($res){
             $arr = array(

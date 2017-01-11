@@ -18,6 +18,7 @@ class CreateAlbumTable extends Migration
             $table->tinyInteger('status');
             $table->smallInteger('type');
             $table->string('desc', 200);
+            $table->integer('praises');
             $table->timestamps();
         });
     }
