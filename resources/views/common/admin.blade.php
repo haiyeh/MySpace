@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ $title }}</title>
-
     <link rel="stylesheet" type="text/css" href="{{ asset('layui/css/layui.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
@@ -66,6 +65,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">其他设置</a>
                     <dl class="layui-nav-child">
+                        <dd><a href="{{ url('admin/source') }}">资源管理</a></dd>
                         <dd><a href="{{ url('admin/system') }}">系统管理</a></dd>
                         <dd><a href="{{ url('admin/menu') }}">菜单管理</a></dd>
                     </dl>

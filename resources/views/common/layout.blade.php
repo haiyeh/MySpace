@@ -11,7 +11,10 @@
 	<body>
 		@section('daohang')
 		{{--导航栏--}}
-  		<nav class="navbar navbar-default" role="navigation" style="height:300px;border-radius: 0px;background:url('Upload/2016-12-29/daohang.jpg');background-size: auto;">
+		<div style="height:300px;border-radius: 0px;background:url('Upload/2016-12-29/daohang.jpg');background-size: auto;">
+
+		</div>
+  		<nav class="navbar navbar-default" role="navigation">
 		  	<div class="container">
 		    	<div class="navbar-header">
 		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -71,13 +74,12 @@
 
 		@section('footer')
 			<div class="footer">
-				<h4>在此感谢:</h4>
-				<a href="www.php.net">p<span class="glyphicon glyphicon-header"></span>p</a> |
-				<a href="http://www.layui.com/"><i class="layui-icon">&#xe609;</i>layui</a> |
-				<a href="http://www.bootcss.com/"><i class="layui-icon">&#xe62b;</i>ootstrap</a> |
-				<a href="http://laravelacademy.org"><i class="layui-icon">&#xe644;</i>laravel学院</a> |
-				<a href="http://github.com"><i class="layui-icon">&#xe613;</i>git</a> |
-				<a href="http://glyphicons.com/">Glyphicons</a>
+				<a href="http://www.php.cn">php</a>
+				<a href="http://www.golaravel.com">Laravel</a>
+				<a href="http://www.bootcss.com/">Bootstrap</a>
+				<a href="http://glyphicons.com">Glyphicons</a>
+				<a href="http://www.layui.com/">Layui</a>
+				<a href="http://www.github.com">Git</a>
 			</div>
 		@show
 		<script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>

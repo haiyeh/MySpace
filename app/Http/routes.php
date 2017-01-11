@@ -64,4 +64,11 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin/commentDel', 'CommentController@commentDel');
     Route::get('admin/messageDel', 'MessageController@messageDel');
     Route::get('admin/imageDel', 'PicController@imageDel');
+    Route::get('admin/source', 'SourceController@index');
+    Route::get('admin/sourceDelete', 'SourceController@sourceDelete');
+    Route::any('admin/storeSource', 'SourceController@storeSource');
+    Route::get('admin/addSource', function (){
+        return view('admin.addSource');
+    });
+    Route::get('admin/getSourceEdit/{id}', 'SourceController@getSourceEdit');
 });

@@ -7,6 +7,7 @@ use App\model\Pic;
 use App\model\Praise;
 use App\model\Comment;
 use App\Http\Controllers\Controller;
+use App\model\Source;
 use Illuminate\Http\Request;
 
 
@@ -18,14 +19,27 @@ class SiteController extends Controller
 //        var_dump($diaries);
         $praiseCount = Praise::getPraiseCount(1,$diaries->id);
 
+        $sources = Source::getPubSources();
+
+        $hotDiary = Diary::getHotDiary();
         if (empty($praiseCount)){
             $praiseCount = 0;
+        }
+
+        if (empty($diaries)){
+            $diaries = '暂无内容';
+        }
+
+        if (empty($sources)){
+            $sources = null;
         }
 
 		return view('site/index', [
 			'title' => 'MySpace Site', 
 			'diary' => $diaries,
-            'praiseCount' => $praiseCount
+            'hotDiary' => $hotDiary,
+            'praiseCount' => $praiseCount,
+            'sources' => $sources
 		]);
 	}
 

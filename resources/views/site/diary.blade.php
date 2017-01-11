@@ -1,8 +1,8 @@
 @extends('common.layout')
 
 @section('siteleft')
-	<a href="{{ url('createDiary') }}" class="btn btn-primary" id="write"><i class="layui-icon">&#xe608;</i>写日志</a>
-	<button class="btn btn-primary" type="button">
+	<a href="{{ url('createDiary') }}" class="layui-btn" id="write"><i class="layui-icon">&#xe608;</i>写日志</a>
+	<button class="layui-btn" type="button">
   		已发布日志数: <span class="badge">{{ $count }}</span>
 	</button>
 	@foreach($diarys as $item)

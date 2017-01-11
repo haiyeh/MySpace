@@ -28,11 +28,27 @@
 			<h4>&nbsp;热门排行</h4>
 		</div>
 		<ul class="list-group">
-			<li class="list-group-item">Cras justo odio</li>
-			<li class="list-group-item">Dapibus ac facilisis in</li>
-			<li class="list-group-item">Morbi leo risus</li>
-			<li class="list-group-item">Porta ac consectetur ac</li>
-			<li class="list-group-item">Vestibulum at eros</li>
+			@foreach($hotDiary as $v)
+			<li class="list-group-item">
+				<a href="{{ url('read') }}/{{ $v->id }}">{{ $v->title }}</a>
+				<span class="badge" id="show" style="float: right;">{{ $v->click }}</span>
+			</li>
+			@endforeach
 		</ul>
 	</div>
+
+	<div class="siteIndex_right" style="margin-top: 50px;">
+		<div class="siteIndex_right_title">
+			<h4>&nbsp;资源下载</h4>
+			<ul class="list-group">
+				@foreach($sources as $item)
+					<li class="list-group-item">
+						<a href="">{{ $item->source_name }}</a>
+						<span class="badge" id="show" style="float: right;">{{ $item->click }}</span>
+					</li>
+				@endforeach
+			</ul>
+		</div>
+	</div>
+
 @endsection

@@ -1,13 +1,13 @@
 @extends('common.layout')
 
 @section('siteleft')
-    <button class="btn btn-primary" id="showmsgbox">发表留言</button>
+    <button class="layui-btn" id="showmsgbox">发表留言</button>
     <div class="container" id="msgbox" style="width:70%;margin: 15px auto;display: none;">
         <form class="layui-form layui-form-pane">
             <input type="hidden" id="_token" value="{{ csrf_token() }}">
             <input type="hidden" id="url" value="{{ url('storeMessage') }}">
             <textarea name="" id="message" cols="30" rows="10"></textarea>
-            <button class="btn btn-primary btn-block" lay-submit lay-filter="msgbox">留言</button>
+            <button class="layui-btn btn-block" lay-submit lay-filter="msgbox">留言</button>
             <button class="btn btn-danger btn-block" id="hidemsgbox">取消</button>
         </form>
         </form>

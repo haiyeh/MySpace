@@ -5,12 +5,8 @@
 layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit', 'element'], function(){
 	var $ = layui.jquery
 	,form = layui.form() //获取form组件
-	,upload = layui.upload //获取upload组件
 	,layer = layui.layer //获得layer组件
-  	,laypage = layui.laypage //获得laypage组件
- 	,laydate = layui.laydate //获得laydate组件
  	,layedit = layui.layedit
- 	,element = layui.element();
 
  	//实例化layui编辑器
  	//日志
@@ -666,7 +662,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 						'<input type="text" name="desc" id="album_desc" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="'+msg.album_desc+'">'+
 						'</div>'+
 						'</div>'+
-						'<button class="btn btn-primary btn-block" lay-submit lay-filter="editAlbumSave">保存</button>'
+						'<button class="layui-btn layui-btn-primary btn-block" lay-submit lay-filter="editAlbumSave">保存</button>'
 					});
 				}
 			}
@@ -675,6 +671,100 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 
 	form.on('submit(album_delete)', function () {
 		var url = $("#album_delete").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{id:id},
+			success:function (res) {
+				if (res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						}, function () {
+							window.location.reload();
+						});
+					})
+
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('删除失败');
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.msg('程序出错，正在紧急抢救中...');
+				})
+			}
+		});
+	});
+
+	form.on('submit(addSource)', function () {
+		var url = $("#addSource_url").val();
+		layer.open({
+			type: 2,
+			title: '添加资源链',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['580px', '90%'],
+			content: url
+		});
+	});
+	
+	form.on('submit(storeSource)', function () {
+		var url = $("#url").val();
+		var name = $("#source_name").val();
+		var link = $("#source_link").val();
+		var status = $('input[name="status"]:checked').val();
+		var _token = $("#_token").val();
+
+		$.ajax({
+			url: url,
+			type: 'post',
+			data: {'name':name,'link':link,'status':status,'_token':_token},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存失败',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:5
+						});
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序错误',{
+						skin: 'layui-layer-molv' //样式类名
+						,closeBtn: 1
+						,icon:2
+					});
+				})
+			}
+		});
+		return false;
+	});
+
+	form.on('submit(source_delete)', function () {
+		var url = $("#url").val();
 		var id = $(this).parent('td').parent('tr').attr('id');
 		$.ajax({
 			url:url,

@@ -51,6 +51,7 @@ class DiaryController extends Controller
     public function read(Request $request)
     {
         $id = $request->id;
+        $click = Diary::updateDiaryClick($id);
         $diary = Diary::getOneDiary($id);
         $praiseCount = Praise::getPraiseCount(1,$id);
         if (empty($praiseCount)){

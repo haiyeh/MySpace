@@ -1,13 +1,13 @@
 @extends('common.layout')
 
 @section('siteleft')
-	<a href="#" onclick="history.back(-1)" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span>返回</a>
+	<a href="#" onclick="history.back(-1)" class="layui-btn"><span class="glyphicon glyphicon-arrow-left"></span>返回</a>
 
 		<div class="page-header">
 			<input type="hidden" id="url" value="{{ url('praise') }}">
 			<input type="hidden" id="type" value="1">
 			<input type="hidden" id="bid" value="{{ $diary->id }}">
-			<button class="btn btn-primary" lay-submit lay-filter="zan">
+			<button class="layui-btn" lay-submit lay-filter="zan">
 				<span class="glyphicon glyphicon-thumbs-up"></span>
 				<span class="badge" id="show">
 				@if(is_object($praiseCount) && !empty($praiseCount))
@@ -34,7 +34,7 @@
 		<textarea name="content" id="comment" cols="30" rows="10" style="width: 95%;"></textarea>
 		<p style="text-align: center">
 			<button class="btn btn-danger" onclick="quxiao()">取消</button>
-			<button class="btn btn-primary" lay-submit lay-filter="comment_submit">提交</button>
+			<button class="layui-btn" lay-submit lay-filter="comment_submit">提交</button>
 		</p>
 	</div>
 
