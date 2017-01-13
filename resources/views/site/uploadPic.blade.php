@@ -35,7 +35,7 @@
 			</div>
 			<div class="form-group text-center ">
 				<div class="col-md-10 col-md-offset-1">
-					<button type="submit" class="btn btn-primary btn-lg">保存</button>
+					<button type="submit" class="layui-btn">保存</button>
 				</div>
 			</div>
 		</form>

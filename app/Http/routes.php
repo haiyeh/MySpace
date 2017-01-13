@@ -71,4 +71,7 @@ Route::group(['namespace' => 'Admin'], function (){
         return view('admin.addSource');
     });
     Route::get('admin/getSourceEdit/{id}', 'SourceController@getSourceEdit');
+    Route::get('admin/city', 'CityController@index');
+    Route::any('admin/storeCity', 'CityController@storeCity');
+    Route::get('admin/cityDel', 'CityController@cityDel');
 });

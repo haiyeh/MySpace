@@ -2,7 +2,7 @@
 * 组件加载
 */
 
-layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit', 'element'], function(){
+layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 	var $ = layui.jquery
 	,form = layui.form() //获取form组件
 	,layer = layui.layer //获得layer组件
@@ -799,6 +799,101 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		});
 	});
 
+	form.on('submit(city_delete)', function () {
+		var url = $("#delCity_url").val();
+		var id = $(this).parent('td').parent('tr').attr('id');
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{id:id},
+			success:function (res) {
+				if (res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						}, function () {
+							window.location.reload();
+						});
+					})
+
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('删除失败');
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.msg('程序出错，正在紧急抢救中...');
+				})
+			}
+		});
+	});
+
+	form.on('submit(addCity)', function () {
+		layer.open({
+			type: 1,
+			skin: 'layui-layer-rim', //加上边框
+			area: ['420px', '160px'], //宽高
+			title:'添加城市',
+			content:
+			'<div class="layui-form-item">'+
+			'<label class="layui-form-label">城市</label>'+
+			'<div class="layui-input-block">'+
+			'<input type="text" name="city" id="city" required  lay-verify="required" autocomplete="off" class="layui-input">'+
+			'</div>'+
+			'</div>'+
+			'<button class="layui-btn btn-block" lay-submit lay-filter="citySave">保存</button>'
+		});
+	});
+	
+	form.on('submit(citySave)', function () {
+		var url = 'http://localhost/admin/storeCity';
+		var cityname = $("#city").val();
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{'cityname':cityname},
+			success:function (res) {
+				if(res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存失败',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:5
+						});
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序错误',{
+						skin: 'layui-layer-molv' //样式类名
+						,closeBtn: 1
+						,icon:2
+					});
+				})
+			}
+		});
+	});
+
+
 	form.on('submit(editAlbumSave)', function () {
 		var album_name = $("#album_name").val();
 		var type = $("#album_type").val();
@@ -848,6 +943,7 @@ layui.use(['jquery', 'form', 'upload', 'layer', 'laypage', 'laydate', 'layedit',
 		});
 	});
 
+
 });
 
 function comment(){
@@ -857,4 +953,5 @@ function quxiao()
 {
 	$("#comment_div").fadeOut('slow');
 }
+
 

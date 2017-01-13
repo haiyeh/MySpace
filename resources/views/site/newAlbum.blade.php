@@ -44,8 +44,8 @@
   	</div>
   	<div class="layui-form-item">
     	<div class="layui-input-block">
-      		<button class="btn btn-primary" lay-submit lay-filter="addAlbum">保存</button>
-      		<button type="reset" class="btn btn-primary">重置</button>
+      		<button class="layui-btn" lay-submit lay-filter="addAlbum">保存</button>
+      		<button type="reset" class="layui-btn">重置</button>
     	</div>
   	</div>
 	</form>
