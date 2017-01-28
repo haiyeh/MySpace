@@ -74,4 +74,5 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin/city', 'CityController@index');
     Route::any('admin/storeCity', 'CityController@storeCity');
     Route::get('admin/cityDel', 'CityController@cityDel');
+    Route::get('admin/user', 'UserController@index');
 });
