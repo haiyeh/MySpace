@@ -1,10 +1,11 @@
 @extends('common.layout')
 
 @section('siteleft')
-	<a href="#" lay-submit lay-filter="uploadPic" class="layui-btn"><i class="layui-icon">&#xe608;</i>上传图片</a>
-	&nbsp;
-	<a href="#" lay-submit lay-filter="newAlbum" class="layui-btn"><i class="layui-icon">&#xe634;</i>新建相册</a>
+    @if(!empty(session('admin')))
+	    <a href="#" lay-submit lay-filter="uploadPic" class="layui-btn"><i class="layui-icon">&#xe608;</i>上传图片</a>
 
+	    <a href="#" lay-submit lay-filter="newAlbum" class="layui-btn"><i class="layui-icon">&#xe634;</i>新建相册</a>
+    @endif
 	<div class="row">
         @foreach($data as $key => $value)
              <div class="col-sm-6 col-md-3">

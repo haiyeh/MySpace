@@ -22,13 +22,23 @@ class UserController extends Controller
         $title = '用户信息设置';
         $user = $request->user();
         $userMsg = Usermsg::getUserMsg($user->id);
-        $request->session()->put([
-            'user_id' => $user->id,
-            'username' => $user->name,
-            'userHeaderPath' => $userMsg->headerpath,
-            'userAddress' => $userMsg->address,
-            'userSex' => $userMsg->sex
-        ]);
+//        var_dump($userMsg);die;
+        if (empty($userMsg)){
+            $request->session()->put([
+                'user_id' => $user->id,
+                'username' => $user->name,
+            ]);
+            $userMsg = null;
+        }else{
+            $request->session()->put([
+                'user_id' => $user->id,
+                'username' => $user->name,
+                'userHeaderPath' => $userMsg->headerpath,
+                'userAddress' => $userMsg->address,
+                'userSex' => $userMsg->sex
+            ]);
+        }
+
 //        print_r($_SESSION['username']);
         return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg]);
     }

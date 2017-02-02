@@ -30,19 +30,23 @@
 					<li><a href="{{ url('diary') }}">日志</a></li>
 					<li><a href="{{ url('say') }}">说说</a></li>
 					<li><a href="{{ url('message') }}">留言板</a></li>
-					<li class="dropdown">
-		          		<a href="" class="dropdown-toggle" data-toggle="dropdown">相册 <span class="caret"></span></a>
-		          		<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('picture') }}">查看图片</a></li>
-							<li class="divider"></li>
-							<li><a href="#" lay-submit lay-filter="newAlbum">新建相册</a></li>
-							<li class="divider"></li>
-					  		<li><a href="#" lay-submit lay-filter="uploadPic">上传照片</a></li>
-		          		</ul>
-		        	</li>
+					@if(!empty(session('admin')))
+						<li class="dropdown">
+							<a href="" class="dropdown-toggle" data-toggle="dropdown">相册 <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="{{ url('picture') }}">查看图片</a></li>
+								<li class="divider"></li>
+								<li><a href="#" lay-submit lay-filter="newAlbum">新建相册</a></li>
+								<li class="divider"></li>
+								<li><a href="#" lay-submit lay-filter="uploadPic">上传照片</a></li>
+							</ul>
+						</li>
+					@else
+						<li><a href="{{ url('picture') }}">查看相册</a></li>
+					@endif
 		      	</ul>
 		      	<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">CSDN博客</a></li>
+					<li><a href="#">博客</a></li>
 					<li class="dropdown">
 						  @if(!empty(session('username')))
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -53,13 +57,13 @@
 						  @endif
 					  </a>
 					  <ul class="dropdown-menu" role="menu">
-						<li><a href="{{ url('userMsg') }}">个人信息</a></li>
-						<li class="divider"></li>
-						<li><a href="#">更换头像</a></li>
-						<li class="divider"></li>
-						<li><a href="{{ url('admin') }}">内容管理</a></li>
-						<li class="divider"></li>
-						<li><a href="{{ url('auth/logout') }}">退出登录</a></li>
+						  <li><a href="{{ url('userMsg') }}">个人信息</a></li>
+						  @if(!empty(session('admin')))
+						 	  <li class="divider"></li>
+						  	  <li><a href="{{ url('admin') }}">内容管理</a></li>
+						  @endif
+						  <li class="divider"></li>
+						  <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 					  </ul>
 		        	</li>
 		      	</ul>

@@ -3,7 +3,9 @@
 @section('title', 'MySpace Site')
 
 @section('siteleft')
-	<a href="{{ url('createSay') }}" class="layui-btn"><i class="layui-icon">&#xe608;</i>发表说说</a>
+	@if(!empty(session('admin')))
+		<a href="{{ url('createSay') }}" class="layui-btn"><i class="layui-icon">&#xe608;</i>发表说说</a>
+	@endif
 	<button class="layui-btn" type="button">
   		已发布说说数: <span class="badge">{{ $count }}</span>
 	</button>	
