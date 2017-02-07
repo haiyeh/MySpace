@@ -76,5 +76,6 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin/cityDel', 'CityController@cityDel');
     Route::get('admin/user', 'UserController@index');
     Route::get('admin/login', 'AuthController@index');
-    Route::get('admin/getLogin', 'AuthController@login');
+    Route::post('admin/getLogin', 'AuthController@login');
+    Route::post('admin/logout', 'AuthController@logout');
 });

@@ -23,11 +23,16 @@ class AuthController extends Controller
 
         if ($res){
             $request->session()->put('admin', $admin_name);
-            redirect('/');
+            return redirect('/');
         }else{
             echo "<script>alert('账号或密码有误，请重新输入');history.back(-1);</script>";
         }
 
 
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
     }
 }

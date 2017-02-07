@@ -28,7 +28,7 @@ class UserController extends Controller
                 'user_id' => $user->id,
                 'username' => $user->name,
             ]);
-            $userMsg = null;
+            $userMsg = '';
         }else{
             $request->session()->put([
                 'user_id' => $user->id,
@@ -39,7 +39,7 @@ class UserController extends Controller
             ]);
         }
 
-//        print_r($_SESSION['username']);
+        print_r($_SESSION['username']);
         return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg]);
     }
 

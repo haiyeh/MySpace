@@ -46,24 +46,33 @@
 					@endif
 		      	</ul>
 		      	<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">博客</a></li>
+					<li><a href="http://my.csdn.net/qq_36775515?locationNum=0&fps=1">博客</a></li>
 					<li class="dropdown">
-						  @if(!empty(session('username')))
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							{{ session('username') }}
-							<span class="caret"></span>
+						  @if(!empty(session('username')) && empty(session('admin')))
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								{{ session('username') }}
+								<span class="caret"></span>
+						  @elseif(!empty(session('admin')) && empty(session('username')))
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								{{ session('admin') }}
+								<span class="caret"></span>
+						  @elseif(empty(session('admin')) && empty(session('username')))
+							  	<li><a href="{{ url('auth/login') }}">登录</a></li>
 						  @else
-							  <li><a href="{{ url('auth/login') }}">登录</a></li>
+								<li>用户异常</li>
 						  @endif
 					  </a>
 					  <ul class="dropdown-menu" role="menu">
 						  <li><a href="{{ url('userMsg') }}">个人信息</a></li>
-						  @if(!empty(session('admin')))
+						  @if(!empty(session('admin')) && empty(session('username')))
 						 	  <li class="divider"></li>
 						  	  <li><a href="{{ url('admin') }}">内容管理</a></li>
+							  <li class="divider"></li>
+							  <li><a href="{{ url('admin/logout') }}">管理员退出</a></li>
+						  @elseif(empty(session('admin')) && !empty(session('username')))
+							  <li class="divider"></li>
+							  <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 						  @endif
-						  <li class="divider"></li>
-						  <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 					  </ul>
 		        	</li>
 		      	</ul>

@@ -1,6 +1,7 @@
 @extends('common.layout')
 
 @section('siteleft')
+    <div class="usermsg">
     <form class="layui-form layui-form-pane" action="">
         <div class="layui-form-item">
             <input type="hidden" id="url" value="{{ url('saveUser') }}">
@@ -81,4 +82,5 @@
             </div>
         </div>
     </form>
+    </div>
 @endsection
