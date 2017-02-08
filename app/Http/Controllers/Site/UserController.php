@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\model\City;
 use App\model\Usermsg;
 use Encore\Admin\Facades\Auth;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class UserController extends Controller
     public function userMsg(Request $request)
     {
         $title = '用户信息设置';
+        $city = City::getAllCity();
         $user = $request->user();
         $userMsg = Usermsg::getUserMsg($user->id);
 //        var_dump($userMsg);die;
@@ -29,6 +31,7 @@ class UserController extends Controller
                 'username' => $user->name,
             ]);
             $userMsg = '';
+
         }else{
             $request->session()->put([
                 'user_id' => $user->id,
@@ -37,10 +40,12 @@ class UserController extends Controller
                 'userAddress' => $userMsg->address,
                 'userSex' => $userMsg->sex
             ]);
+
+//            return redirect('/');
         }
 
-        print_r($_SESSION['username']);
-        return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg]);
+//        print_r($_SESSION['username']);
+        return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg, 'city' => $city]);
     }
 
     public function saveUser(Request $request)

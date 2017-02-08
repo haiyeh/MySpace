@@ -63,13 +63,12 @@
 						  @endif
 					  </a>
 					  <ul class="dropdown-menu" role="menu">
-						  <li><a href="{{ url('userMsg') }}">个人信息</a></li>
 						  @if(!empty(session('admin')) && empty(session('username')))
-						 	  <li class="divider"></li>
 						  	  <li><a href="{{ url('admin') }}">内容管理</a></li>
 							  <li class="divider"></li>
 							  <li><a href="{{ url('admin/logout') }}">管理员退出</a></li>
 						  @elseif(empty(session('admin')) && !empty(session('username')))
+							  <li><a href="{{ url('userMsg') }}">个人信息</a></li>
 							  <li class="divider"></li>
 							  <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 						  @endif

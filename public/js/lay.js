@@ -178,6 +178,7 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 						layer.msg('作者又收到一个赞');
 					})
 					$("#show").html(json.count);
+					document.getElementById('zan').disabled=true;
 				}else{
 					layui.use('layer', function(){
 						var layer = layui.layer;

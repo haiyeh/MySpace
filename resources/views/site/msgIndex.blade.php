@@ -15,15 +15,13 @@
 
     @if(empty($msg))
         <div class="container" style="width:70%;border: 2px solid #2fa0ec; box-shadow: rgba(62, 62, 62, 0.87)">
-            <blockquote class="layui-elem-quote layui-quote-nm">
-                暂无留言
-            </blockquote>
+            <h1>暂无留言，舒适的沙发等着你来~~~</h1>
         </div>
     @else
         @foreach($msg as $key => $value)
             <div class="container" style="width:70%;border-bottom: 2px solid #2fa0ec;margin-top:15px; box-shadow: rgba(62, 62, 62, 0.87)">
                 <img src="{{ $value->headerpath }}" alt="" class="img-thumbnail img-responsive" style="width: 80px;height: 80px;float: left">
-                <span style="margin-top: 5px;margin-left: 5px;float: left">{{ $value->username }}</span>
+                <span style="margin-top: 5px;margin-left: 5px;float: left">{{ session('username') }}</span>
                 <blockquote style="margin-top: 35px;margin-left: 100px;">
                     {!! $value->content !!}
                     <span style="float: right">

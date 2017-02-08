@@ -30,11 +30,9 @@
             <div class="layui-input-block">
                 <select name="city" id="city" lay-verify="required">
                     <option value=""></option>
-                    <option value="0">北京</option>
-                    <option value="1">上海</option>
-                    <option value="2">广州</option>
-                    <option value="3">深圳</option>
-                    <option value="4">杭州</option>
+                    @foreach($city as $item)
+                        <option value="{{ $item->id }}">{{ $item->cityname }}</option>
+                    @endforeach
                 </select>
             </div>
             <input type="text" id="street" name="street" class="layui-input" placeholder="请输入街道">

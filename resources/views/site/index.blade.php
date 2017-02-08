@@ -5,7 +5,7 @@
 		<div class="diary_header">
 			<h2>&nbsp;{!! $diary->title !!}<small>&nbsp;&nbsp;&nbsp;发布于{{ date('Y-m-d H:i:s', $diary->published_at) }}</small></h2>
 		</div>
-		&nbsp;<button class="btn btn-warning" lay-submit lay-filter="zan">
+		&nbsp;<button class="btn btn-warning" lay-submit lay-filter="zan" id="zan">
 				<span class="glyphicon glyphicon-thumbs-up"></span>
 				<span class="badge" id="show">
 				@if(is_object($praiseCount) && !empty($praiseCount))
@@ -19,7 +19,7 @@
 		<input type="hidden" id="type" value="1">
 		<input type="hidden" id="bid" value="{{ $diary->id }}">
 		<blockquote>
-			<p>{!! $diary->content !!}</p>
+			<p>{!! substr($diary->content, 0, 1000) !!}</p>
 		</blockquote>
 	</div>
 

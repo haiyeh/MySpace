@@ -22,10 +22,15 @@
 
 		<blockquote class="layui-elem-quote layui-quote-nm">
 			{!! $diary->content !!}
+			@if(!empty(session('username')))
 			<a href="#" style="float: right" onclick="comment()">
 				<span class="glyphicon glyphicon-comment"></span>
 			</a>
+			@endif
 		</blockquote>
+
+		<span style="float: left;margin-top: 30px;"><b style="font-size:19px;">评论区：</b></span>
+		<hr>
 
 	<div class="container" id="comment_div" style="display: none">
 		<input type="hidden" id="comment_url" value="{{ url('comment') }}">
@@ -39,20 +44,23 @@
 	</div>
 
 	<div class="container" id="comment_all">
-
-			<hr>
-			<span style="float: left">评论区：</span>
-			<hr>
 			@foreach($article_comment as $key=>$value)
-				@if(empty($value->content))
+				@if(empty($value))
 					<blockquote class="layui-elem-quote layui-quote-nm">
 						暂无评论，快来抢沙发吧！！
 					</blockquote>
 				@else
-				<blockquote class="layui-elem-quote layui-quote-nm">
-					{!! $value->content !!}
-					<span style="float:right;">{{ date("Y-m-d", $value->comment_at) }}</span>
-				</blockquote>
+				<div class="container" style="width:70%;border-bottom: 2px solid #2fa0ec;margin-top:15px; box-shadow: rgba(62, 62, 62, 0.87)">
+					<img src="{{ session('userHeaderPath') }}" alt="" class="img-thumbnail img-responsive" style="width: 80px;height: 80px;float: left">
+					<span style="margin-top: 5px;margin-left: 5px;float: left">{{ session('username') }}</span>
+					<blockquote style="margin-top: 35px;margin-left: 100px;">
+						{!! $value->content !!}
+						<span style="float: right">
+                        {{ date("Y-m-d", $value->comment_at) }}
+                    </span>
+					</blockquote>
+
+				</div>
 				@endif
 			@endforeach
 	</div>

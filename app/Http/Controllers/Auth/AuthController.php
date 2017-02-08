@@ -13,7 +13,7 @@ class AuthController extends Controller
     use AuthenticatesUsers, ThrottlesLogins;
 
     protected $redirectAfterLogout = '/auth/login';
-    protected $redirectTo = '/';
+    protected $redirectTo = '/userMsg';
 
     /**
      * Create a new authentication controller instance.
