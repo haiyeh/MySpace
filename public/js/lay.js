@@ -944,6 +944,55 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 		});
 	});
 
+	form.on('submit(system)', function () {
+		var url = $("#url").val();
+		var diary = $("#diary_set").is(':checked');
+		var say = $("#say_set").is(':checked');
+		var message = $("#message_set").is(':checked');
+		var album = $("#album_set").is(':checked');
+		var comment = $("#comment_set").is(':checked');
+		var parise = $("#parise_set").is(':checked');
+
+		$.ajax({
+			url:url,
+			type:'post',
+			data:{'diary':diary,'say':say,'message':message,'album':album,'comment':comment,'parise':parise},
+			success:function (res) {
+				if (res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						}, function () {
+							window.location.reload();
+						});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('保存失败',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:5
+						});
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.alert('程序出错，正在紧急抢修中...',{
+						skin: 'layui-layer-lan' //样式类名
+						,closeBtn: 1
+						,icon:2
+					});
+				})
+			}
+		});
+		return false;
+	});
 
 });
 

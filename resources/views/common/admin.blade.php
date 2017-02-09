@@ -67,7 +67,6 @@
                     <dl class="layui-nav-child">
                         <dd><a href="{{ url('admin/source') }}">资源管理</a></dd>
                         <dd><a href="{{ url('admin/system') }}">系统管理</a></dd>
-                        <dd><a href="{{ url('admin/menu') }}">菜单管理</a></dd>
                     </dl>
                 </li>
             </ul>
