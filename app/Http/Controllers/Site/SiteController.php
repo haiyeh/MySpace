@@ -8,12 +8,13 @@ use App\model\Praise;
 use App\model\Comment;
 use App\Http\Controllers\Controller;
 use App\model\Source;
+use App\model\System;
 use Illuminate\Http\Request;
 
 
 class SiteController extends Controller
 {
-	public function index()
+	public function index(Request $request)
 	{
 		$diaries = Diary::getDiary();
 //        var_dump($diaries);
@@ -22,6 +23,16 @@ class SiteController extends Controller
         $sources = Source::getPubSources();
 
         $hotDiary = Diary::getHotDiary();
+
+        $func = System::getFuncStatus();
+        $request->session()->put([
+            'diary' => $func->diary,
+            'say' => $func->say,
+            'message' => $func->message,
+            'comment' => $func->comment,
+            'album' => $func->album,
+        ]);
+
         if (empty($praiseCount)){
             $praiseCount = 0;
         }

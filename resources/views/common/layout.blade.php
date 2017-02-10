@@ -27,9 +27,15 @@
 		    	</div>
 		    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
-					<li><a href="{{ url('diary') }}">日志</a></li>
-					<li><a href="{{ url('say') }}">说说</a></li>
-					<li><a href="{{ url('message') }}">留言板</a></li>
+					@if(session('diary') == 1 || !empty(session('admin')))
+						<li><a href="{{ url('diary') }}">日志</a></li>
+					@endif
+					@if(session('say') == 1 || !empty(session('admin')))
+						<li><a href="{{ url('say') }}">说说</a></li>
+					@endif
+					@if(session('message') == 1 || !empty(session('admin')))
+						<li><a href="{{ url('message') }}">留言板</a></li>
+					@endif
 					@if(!empty(session('admin')))
 						<li class="dropdown">
 							<a href="" class="dropdown-toggle" data-toggle="dropdown">相册 <span class="caret"></span></a>
@@ -41,7 +47,7 @@
 								<li><a href="#" lay-submit lay-filter="uploadPic">上传照片</a></li>
 							</ul>
 						</li>
-					@else
+					@elseif(session('album') == 1)
 						<li><a href="{{ url('picture') }}">查看相册</a></li>
 					@endif
 		      	</ul>

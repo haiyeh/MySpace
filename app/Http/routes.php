@@ -79,5 +79,5 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::post('admin/getLogin', 'AuthController@login');
     Route::get('admin/logout', 'AuthController@logout');
     Route::get('admin/system', 'SystemController@index');
-    Route::post('admin/systemSave', 'SystemController@save');
+    Route::any('admin/systemSave', 'SystemController@save');
 });

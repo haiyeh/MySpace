@@ -19,7 +19,7 @@ class CreateSystemTable extends Migration
             $table->tinyInteger('message');
             $table->tinyInteger('album');
             $table->tinyInteger('comment');
-            $table->tinyInteger('parise');
+            $table->timestamps();
         });
     }
 

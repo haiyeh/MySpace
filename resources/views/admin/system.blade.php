@@ -5,6 +5,7 @@
         <div class="container" style="margin-top: 50px;">
             <div class="system_left" style="float: left;width: 48%;margin-left: 1%;">
                 <input type="hidden" id="url" value="{{ url('admin/systemSave') }}">
+                <input type="hidden" id="_token" value="{{ csrf_token() }}">
                 <form class="layui-form" action="">
                     <h3>日志功能开关：</h3>
                     <div class="layui-input-block">
@@ -25,10 +26,6 @@
                     <h3>评论功能开关：</h3>
                     <div class="layui-input-block">
                         <input type="checkbox" id="comment_set" lay-skin="switch">
-                    </div>
-                    <h3>点赞功能开关：</h3>
-                    <div class="layui-input-block">
-                        <input type="checkbox" id="parise_set " lay-skin="switch">
                     </div>
                     <button class="layui-btn layui-btn-big" lay-submit lay-filter="system">保存</button>
                 </form>

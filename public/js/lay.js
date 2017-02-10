@@ -190,6 +190,34 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 		}, 'json');
 	});
 
+	form.on('submit(articleZan)', function () {
+		var url = $("#url").val();
+		var type = $("#type").val();
+		var bid = $("#bid").val();
+		$.ajax({
+			url:url,
+			data:{'type':type,'bid':bid},
+			success:function (res) {
+				// document.write(res);
+				var json = jQuery.parseJSON(res);
+				if(json.code == 1){
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('作者又收到一个赞');
+					})
+					$("#show").html(json.count);
+					document.getElementById('articleZan').disabled=true;
+				}else{
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('点赞失败');
+					})
+					$("#show").html(json.count);
+				}
+			},
+		}, 'json');
+	});
+
 	form.on('submit(comment_submit)', function (data) {
 		var url = $("#comment_url").val();
 		var type = $("#type").val();
@@ -946,30 +974,34 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 
 	form.on('submit(system)', function () {
 		var url = $("#url").val();
-		var diary = $("#diary_set").is(':checked');
-		var say = $("#say_set").is(':checked');
-		var message = $("#message_set").is(':checked');
-		var album = $("#album_set").is(':checked');
-		var comment = $("#comment_set").is(':checked');
-		var parise = $("#parise_set").is(':checked');
+		var diary = getstatus($("#diary_set").is(':checked'));
+		var say = getstatus($("#say_set").is(':checked'));
+		var message = getstatus($("#message_set").is(':checked'));
+		var album = getstatus($("#album_set").is(':checked'));
+		var comment = getstatus($("#comment_set").is(':checked'));
+		var _token = $("#_token").val();
 
 		$.ajax({
 			url:url,
 			type:'post',
-			data:{'diary':diary,'say':say,'message':message,'album':album,'comment':comment,'parise':parise},
-			success:function (res) {
-				if (res == 1){
+			data:{'_token':_token,'diary':diary,'say':say,'message':message,'album':album,'comment':comment},
+			success:function (data) {
+				var json = jQuery.parseJSON(data);
+				if (json.res == 1){
 					layui.use('layer', function () {
 						var layer = layui.layer;
 						layer.alert('保存成功',{
 							skin: 'layui-layer-molv' //样式类名
 							,closeBtn: 1
 							,icon:1
-						}, function () {
-							window.location.reload();
-						});
+						})
 					})
-				}else{
+					diary_set(json.diary);
+					say_set(json.say);
+					comment_set(json.comment);
+					album_set(json.album);
+					message_set(json.message);
+				}else {
 					layui.use('layer', function () {
 						var layer = layui.layer;
 						layer.alert('保存失败',{
@@ -1002,6 +1034,49 @@ function comment(){
 function quxiao()
 {
 	$("#comment_div").fadeOut('slow');
+}
+function getstatus(res)
+{
+	if (res == true){
+		return 1;
+	}else{
+		return 0;
+	}
+}
+function diary_set(res) {
+	if (res == 1){
+		$("#diary_set").attr("checked", true);
+	}else{
+		$("#diary_set").attr("checked", false);
+	}
+}
+function say_set(res) {
+	if (res == 1){
+		$("#say_set").attr("checked", true);
+	}else{
+		$("#say_set").attr("checked", false);
+	}
+}
+function message_set(res) {
+	if (res == 1){
+		$("#message_set").attr("checked", true);
+	}else{
+		$("#message_set").attr("checked", false);
+	}
+}
+function comment_set(res) {
+	if (res == 1){
+		$("#comment_set").attr("checked", true);
+	}else{
+		$("#comment_set").attr("checked", false);
+	}
+}
+function album_set(res) {
+	if (res == 1){
+		$("#album_set").attr("checked", true);
+	}else{
+		$("#album_set").attr("checked", false);
+	}
 }
 
 

@@ -17,35 +17,46 @@ class SystemController extends Controller
 
     public function save(Request $request)
     {
-        $diary = self::getStatus($request->diary);
-        $say = self::getStatus($request->say);
-        $album = self::getStatus($request->album);
-        $comment = self::getStatus($request->comment);
-        $message = self::getStatus($request->message);
-        $parise = self::getStatus($request->parise);
+        $diary = $request->diary;
+        $say = $request->say;
+        $album = $request->album;
+        $comment = $request->comment;
+        $message = $request->message;
 
         $status = System::getAllFuncStatus();
+
         if ($status == false){
-            $res = System::saveFuncStatus($diary, $say, $message, $album, $comment, $parise);
+            $res = System::saveFuncStatus($diary, $say, $message, $album, $comment);
         }else{
-            $res = System::updateFuncStstus($status, $diary, $say, $message, $album, $comment, $parise);
+            $res = System::updateFuncStstus($status, $diary, $say, $message, $album, $comment);
         }
+
+        $func = System::getFuncStatus();
+
+        $arr = array(
+            'diary' => $func->diary,
+            'say' => $func->say,
+            'message' => $func->message,
+            'comment' => $func->comment,
+            'album' => $func->album,
+        );
+
+        $request->session()->put([
+            'diary' => $func->diary,
+            'say' => $func->say,
+            'message' => $func->message,
+            'comment' => $func->comment,
+            'album' => $func->album,
+        ]);
 
         if ($res){
-            return 1;
+            $arr['res'] = 1;
         }else{
-            return 0;
+            $arr['res'] = 0;
         }
+
+        return json_encode($arr);
 
     }
 
-    public static function getStatus($func)
-    {
-        if ($func == true){
-            $func = 1;
-        }else{
-            $func = 0;
-        }
-        return $func;
-    }
 }

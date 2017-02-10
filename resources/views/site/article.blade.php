@@ -7,7 +7,7 @@
 			<input type="hidden" id="url" value="{{ url('praise') }}">
 			<input type="hidden" id="type" value="1">
 			<input type="hidden" id="bid" value="{{ $diary->id }}">
-			<button class="layui-btn" lay-submit lay-filter="zan">
+			<button class="btn btn-warning" lay-submit lay-filter="articleZan" id="articleZan">
 				<span class="glyphicon glyphicon-thumbs-up"></span>
 				<span class="badge" id="show">
 				@if(is_object($praiseCount) && !empty($praiseCount))
