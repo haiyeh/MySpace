@@ -2,25 +2,29 @@
 
 @section('siteleft')
 	<div class="siteIndex_left">
-		<div class="diary_header">
-			<h2>&nbsp;{!! $diary->title !!}<small>&nbsp;&nbsp;&nbsp;发布于{{ date('Y-m-d H:i:s', $diary->published_at) }}</small></h2>
-		</div>
-		&nbsp;<button class="btn btn-warning" lay-submit lay-filter="zan" id="zan">
-				<span class="glyphicon glyphicon-thumbs-up"></span>
-				<span class="badge" id="show">
-				@if(is_object($praiseCount) && !empty($praiseCount))
-						{{ $praiseCount->praises }}
-					@else
-						{{ $praiseCount }}
-					@endif
-			</span>
-			</button>
-		<input type="hidden" id="url" value="{{ url('praise') }}">
-		<input type="hidden" id="type" value="1">
-		<input type="hidden" id="bid" value="{{ $diary->id }}">
-		<blockquote>
-			<p>{!! substr($diary->content, 0, 1000) !!}</p>
-		</blockquote>
+		@if(!empty($diary))
+			<div class="diary_header">
+				<h2>&nbsp;{!! $diary->title !!}<small>&nbsp;&nbsp;&nbsp;发布于{{ date('Y-m-d H:i:s', $diary->published_at) }}</small></h2>
+			</div>
+			&nbsp;<button class="btn btn-warning" lay-submit lay-filter="zan" id="zan">
+					<span class="glyphicon glyphicon-thumbs-up"></span>
+					<span class="badge" id="show">
+					@if(is_object($praiseCount) && !empty($praiseCount))
+							{{ $praiseCount->praises }}
+						@else
+							{{ $praiseCount }}
+						@endif
+				</span>
+				</button>
+			<input type="hidden" id="url" value="{{ url('praise') }}">
+			<input type="hidden" id="type" value="1">
+			<input type="hidden" id="bid" value="{{ $diary->id }}">
+			<blockquote>
+				<p>{!! substr($diary->content, 0, 1000) !!}</p>
+			</blockquote>
+		@else
+			<h1 style="margin: 30px auto;">站长暂无发布文章</h1>
+		@endif
 	</div>
 
 	<div class="siteIndex_right">
