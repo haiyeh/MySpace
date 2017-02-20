@@ -75,6 +75,8 @@
 							  <li><a href="{{ url('admin/logout') }}">管理员退出</a></li>
 						  @elseif(empty(session('admin')) && !empty(session('username')))
 							  <li><a href="{{ url('userMsg') }}">个人信息</a></li>
+						      <li class="divider"></li>
+						      <li><a href="{{ url('password/email') }}">修改密码</a></li>
 							  <li class="divider"></li>
 							  <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 						  @endif

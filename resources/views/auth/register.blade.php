@@ -9,7 +9,7 @@
 <body>
 <div class="login" id="register">
     <i class="layui-icon" style="font-size: 30px; color: #009688;">&#xe62e;</i>注册
-    <form class="layui-form layui-form-pane" action="{{ url('saveUser') }}" method="post">
+    <form class="layui-form layui-form-pane" action="{{ url('auth/register') }}" method="post">
         {!! csrf_field() !!}
         <div class="layui-form-item">
             <label class="layui-form-label">账号</label>

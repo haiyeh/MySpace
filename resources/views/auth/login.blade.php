@@ -44,6 +44,7 @@
 			      		<button class="layui-btn" lay-submit lay-filter="login">登录</button>
 			            <a href="{{ url('/') }}" class="layui-btn layui-btn-small">返回首页</a>
 						<a href="{{ url('register') }}" class="layui-btn layui-btn-small">申请账号</a>
+						<a href="{{ url('password/email') }}" class="layui-btn layui-btn-danger">找回密码</a>
 			    	</div>
 			  	</div>
  			</form>
