@@ -9,30 +9,31 @@
 <body>
 <div class="login" id="register">
     <i class="layui-icon" style="font-size: 30px; color: #009688;">&#xe62e;</i>注册
-    <form class="layui-form layui-form-pane" action="{{ url('auth/register') }}" method="post">
-        {!! csrf_field() !!}
+    <form class="layui-form layui-form-pane">
+        <input type="hidden" id="_token" value="{{csrf_token()}}">
+        <input type="hidden" id="regUrl" value="{{ url('register') }}">
         <div class="layui-form-item">
             <label class="layui-form-label">账号</label>
             <div class="layui-input-block">
-                <input type="text" name="name" lay-verify="username" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('name') }}">
+                <input type="text" name="name" id="regName" lay-verify="username" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('name') }}">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">密码</label>
             <div class="layui-input-block">
-                <input type="password" name="password" lay-verify="password" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('password') }}">
+                <input type="password" id="regPwd" name="password" lay-verify="password" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('password') }}">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">邮箱</label>
             <div class="layui-input-block">
-                <input type="text" name="email" lay-verify="email" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('email') }}">
+                <input type="text" id="regEmail" name="email" lay-verify="email" placeholder="请输入" autocomplete="off" class="layui-input" value="{{ old('email') }}">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">确认密码</label>
             <div class="layui-input-block">
-                <input type="password" name="password_confirmation" class="layui-input" placeholder="请输入" title="密码" lay-skin="switch">
+                <input type="password" id="regPwdC" name="password_confirmation" class="layui-input" placeholder="请输入" title="密码" lay-skin="switch">
             </div>
         </div>
         <div class="layui-form-item">

@@ -8,6 +8,7 @@ use Encore\Admin\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
+use App\model\User as NewUser;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
@@ -67,5 +68,26 @@ class UserController extends Controller
         }else{
             return 0;
         }
+    }
+
+    public function register(Request $request)
+    {
+        $username = $request->name;
+        $password = $request->password;
+        $email = $request->email;
+        $password_confirmation = $request->password_confirmation;
+
+        if ($password != $password_confirmation){
+            return -1;
+        }
+
+        $res = NewUser::saveUser($username, $password, $email);
+
+        if ($res){
+            return 1;
+        }else{
+            return 0;
+        }
+
     }
 }

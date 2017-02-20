@@ -11,4 +11,14 @@ class User extends Model
     	return User::orderby('id')->paginate(8);
     }
 
+    public static function saveUser($name, $password, $email)
+    {
+        $user = new User();
+        $user->name = $name;
+        $user->password = bcrypt($password);
+        $user->email = $email;
+
+        return $user->save();
+    }
+
 }

@@ -52,6 +52,7 @@ Route::group(['namespace' => 'Site'], function(){
     Route::any('storeMessage', ['as' => 'storeMessage', 'uses' => 'MessageController@storeMessage']);
     Route::group(['middleware' => 'auth'], function(){
     });
+    Route::any('register', 'UserController@register');
 });
 
 Route::group(['namespace' => 'Admin'], function (){

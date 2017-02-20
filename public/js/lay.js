@@ -36,6 +36,47 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 	});
 
 	//监听提交按钮  ajax
+	
+	form.on('submit(register)', function () {
+		var url = $("regUrl").val();
+		var _token = $("_token").val();
+		var name = $("#regName").val();
+		var password = $("#regPwd").val();
+		var password_confirmation = $("#regPwdC").val();
+		var email = $("#regEmail").val();
+
+		$.ajax({
+			url:url,
+			type:'post',
+			data:{'_token':_token,'name':name,'password':password,'email':email,'password_confirmation':password_confirmation},
+			success:function (res) {
+				if (res == -1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('密码输入不一致',{time:2000});
+					})
+				}else if (res == 0){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('注册失败，请重新尝试',{time:2000});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('注册成功',{time:2000});
+					})
+				}
+			},
+			error:function(){
+				layui.use('layer', function(){
+					var layer = layui.layer;
+					layer.msg('系统错误,正在修复中....');
+				})
+			},
+		})
+		return false;
+	});
+
 	form.on('submit(addSay)', function(data){
 		var content = layedit.getContent(say);
 		var token = data.field._token;
