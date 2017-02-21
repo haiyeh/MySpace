@@ -91,4 +91,6 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::get('admin/logout', 'AuthController@logout');
     Route::get('admin/system', 'SystemController@index');
     Route::any('admin/systemSave', 'SystemController@save');
+    Route::get('admin/password', 'AdminController@password');
+    Route::any('admin/pwdReset', 'AdminController@pwdReset');
 });

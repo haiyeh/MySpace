@@ -1066,7 +1066,53 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 		});
 		return false;
 	});
+    
+    form.on('submit(password)', function () {
+        var admin = $("#admin").val();
+        var password = $("#adminPwd").val();
+        var url = $("#pwd_url").val();
+        var _token = $("#_token").val();
 
+        $.ajax({
+            url:url,
+            type:'post',
+            data:{'_token':_token,'admin':admin,'password':password},
+            success: function (res) {
+                if (res == 1){
+                    layui.use('layer', function () {
+                        var layer = layui.layer;
+                        layer.alert('修改成功',{
+                            skin: 'layui-layer-molv' //样式类名
+                            ,closeBtn: 1
+                            ,icon:1
+                        }, function () {
+                            window.location.reload();
+                        });
+                    })
+                }else{
+                    layui.use('layer', function () {
+                        var layer = layui.layer;
+                        layer.alert('修改失败',{
+                            skin: 'layui-layer-molv' //样式类名
+                            ,closeBtn: 1
+                            ,icon:5
+                        });
+                    })
+                }
+            },
+            error:function () {
+                layui.use('layer', function () {
+                    var layer = layui.layer;
+                    layer.alert('程序出错，正在紧急抢修中...',{
+                        skin: 'layui-layer-lan' //样式类名
+                        ,closeBtn: 1
+                        ,icon:2
+                    });
+                })
+            }
+        });
+        return false;
+    });
 });
 
 function comment(){

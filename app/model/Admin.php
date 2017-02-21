@@ -10,4 +10,10 @@ class Admin extends Model
     {
         return Admin::where(['admin_name' => $admin_name, 'admin_pwd' => $admin_pwd])->first();
     }
+
+    public static function pwdReset($admin_name, $admin_pwd)
+    {
+        return Admin::where(['admin_name' => $admin_name])->update(['admin_pwd' => $admin_pwd]);
+    }
+
 }

@@ -17,7 +17,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $admin_name = $request->admin_name;
-        $admin_pwd = $request->admin_pwd;
+        $admin_pwd = bcrypt($request->admin_pwd);
 
         $res = Admin::login($admin_name, $admin_pwd);
 

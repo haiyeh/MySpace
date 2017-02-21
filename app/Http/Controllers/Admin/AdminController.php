@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\model\Admin;
 use App\model\Comment;
 use Illuminate\Http\Request;
 
@@ -44,4 +45,23 @@ class AdminController extends Controller
         return view('admin.index', $arr);
     }
 
+    public function password()
+    {
+        return view('admin.password', ['title' => '管理员密码修改']);
+    }
+
+    public function pwdReset(Request $request)
+    {
+        $admin_name = $request->admin;
+        $admin_pwd = bcrypt($request->password);
+
+        $res = Admin::pwdReset($admin_name, $admin_pwd);
+
+        if ($res){
+            return 1;
+        }else{
+            return 0;
+        }
+
+    }
 }

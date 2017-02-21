@@ -44,14 +44,25 @@
 	<div class="siteIndex_right" style="margin-top: 50px;">
 		<div class="siteIndex_right_title">
 			<h4>&nbsp;资源下载</h4>
-			<ul class="list-group">
-				@foreach($sources as $item)
-					<li class="list-group-item">
-						<a href="">{{ $item->source_name }}</a>
-						<span class="badge" id="show" style="float: right;">{{ $item->click }}</span>
-					</li>
-				@endforeach
-			</ul>
+			@if(!empty(session('username')) || !empty(session('admin')))
+				<ul class="list-group">
+					@foreach($sources as $item)
+						<li class="list-group-item">
+							<a href="{{ $item->source_link }}">{{ $item->source_name }}</a>
+							<span class="badge" id="show" style="float: right;">{{ $item->click }}</span>
+						</li>
+					@endforeach
+				</ul>
+			@else
+				<ul class="list-group">
+					@foreach($sources as $item)
+						<li class="list-group-item">
+							<p>{{ $item->source_name }}</p>
+							<span class="badge" id="show" style="float: right;">{{ $item->click }}</span>
+						</li>
+					@endforeach
+				</ul>
+			@endif
 		</div>
 	</div>
 

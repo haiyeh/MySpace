@@ -65,6 +65,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">其他设置</a>
                     <dl class="layui-nav-child">
+                        <dd><a href="{{ url('admin/password') }}">密码修改</a></dd>
                         <dd><a href="{{ url('admin/source') }}">资源管理</a></dd>
                         <dd><a href="{{ url('admin/system') }}">系统管理</a></dd>
                     </dl>
