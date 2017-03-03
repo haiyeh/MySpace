@@ -53,7 +53,7 @@ class AdminController extends Controller
     public function pwdReset(Request $request)
     {
         $admin_name = $request->admin;
-        $admin_pwd = bcrypt($request->password);
+        $admin_pwd = md5($request->password);
 
         $res = Admin::pwdReset($admin_name, $admin_pwd);
 

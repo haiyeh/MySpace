@@ -27,6 +27,8 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::group(['namespace' => 'Site'], function(){
+
+    Route::any('/', ['as' => 'index', 'uses' => 'SiteController@index']);
 	Route::any('getUser', ['as' => 'getUser', 'uses' => 'SiteController@getUser']);
 	Route::any('createDiary', ['as' => 'creatediary', 'uses' => 'DiaryController@createDiary']);
 	Route::any('diary/store', ['as' => 'storediary', 'uses' => 'DiaryController@store']);
@@ -38,7 +40,7 @@ Route::group(['namespace' => 'Site'], function(){
 	Route::any('pic/storeAlbum', ['as' => 'storealbum', 'uses' => 'PicController@storeAlbum']);
     Route::any('pic/uploadify', ['as' => 'upload', 'uses' => 'PicController@uploadify']);
     Route::get('pic/readAlbum/{album_id}', ['as' => 'readAlbum', 'uses' => 'PicController@readAlbum']);
-    Route::any('/', ['as' => 'index', 'uses' => 'SiteController@index']);
+
     Route::any('diary', ['as' => 'diary', 'uses' => 'DiaryController@index']);
     Route::any('read/{id}', ['as' => 'read', 'uses' => 'DiaryController@read']);
     Route::any('say', ['as' => 'say', 'uses' => 'SayController@index']);
