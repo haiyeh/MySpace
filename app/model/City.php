@@ -14,6 +14,11 @@ class City extends Model
         return $city->save();
     }
 
+    public static function getCity($city_id)
+    {
+        return City::select('cityname')->where('id', $city_id)->first();
+    }
+
     public static function getAllCity()
     {
         return City::orderby('id')->get();

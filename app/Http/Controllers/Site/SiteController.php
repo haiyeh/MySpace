@@ -56,6 +56,12 @@ class SiteController extends Controller
 
 	public function praise(Request $request)
     {
+        if (empty(session('username'))){
+            $arr = array(
+                'code' => -1,
+            );
+            return json_encode($arr);
+        }
         $type = $request->type;
         $bid = $request->bid;
         $res = Praise::doPraise($type, $bid);

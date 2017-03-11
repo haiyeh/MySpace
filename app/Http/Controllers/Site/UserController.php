@@ -26,27 +26,32 @@ class UserController extends Controller
         $user = $request->user();
         $userMsg = Usermsg::getUserMsg($user->id);
 //        var_dump($userMsg);die;
+        $request->session()->put([
+            'username' => $user->name,
+            'user_id' => $user->id
+        ]);
         if (empty($userMsg)){
-            $request->session()->put([
-                'user_id' => $user->id,
-                'username' => $user->name,
-            ]);
-            $userMsg = '';
-
+            return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg, 'city' => $city]);
         }else{
             $request->session()->put([
-                'user_id' => $user->id,
-                'username' => $user->name,
                 'userHeaderPath' => $userMsg->headerpath,
                 'userAddress' => $userMsg->address,
                 'userSex' => $userMsg->sex
             ]);
 
-//            return redirect('/');
+            return redirect('/');
         }
 
 //        print_r($_SESSION['username']);
-        return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg, 'city' => $city]);
+
+    }
+
+    public function userInfo()
+    {
+        $userMsg = Usermsg::getUserMsg(session('user_id'));
+        $city_id = substr($userMsg->address, 0, 1);
+        $cityname = City::getCity($city_id);
+        return view('site.userInfo', ['userMsg' => $userMsg, 'cityname' => $cityname]);
     }
 
     public function saveUser(Request $request)

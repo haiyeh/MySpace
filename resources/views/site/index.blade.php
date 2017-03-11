@@ -4,7 +4,7 @@
 	<div class="siteIndex_left">
 		@if(!empty($diary))
 			<div class="diary_header">
-				<h2>&nbsp;{!! $diary->title !!}<small>&nbsp;&nbsp;&nbsp;发布于{{ date('Y-m-d H:i:s', $diary->published_at) }}</small></h2>
+				<h2><a href="{{ url('read') }}/{{ $diary->id }}">{{ $diary->title }}</a><small>发布于{{ date('Y-m-d', $diary->published_at) }}</small></h2>
 			</div>
 			&nbsp;<button class="btn btn-warning" lay-submit lay-filter="zan" id="zan">
 					<span class="glyphicon glyphicon-thumbs-up"></span>
@@ -20,7 +20,7 @@
 			<input type="hidden" id="type" value="1">
 			<input type="hidden" id="bid" value="{{ $diary->id }}">
 			<blockquote>
-				<p>{!! substr($diary->content, 0, 1000) !!}</p>
+				<p>{!! substr($diary->content, 0, 1110) !!}....</p>
 			</blockquote>
 		@else
 			<h1 style="margin: 30px auto;">站长暂无发布文章</h1>

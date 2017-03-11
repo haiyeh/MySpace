@@ -10,8 +10,7 @@
 <div class="login" id="register">
     <i class="layui-icon" style="font-size: 30px; color: #009688;">&#xe62e;</i>注册
     <form class="layui-form layui-form-pane">
-        <input type="hidden" id="_token" value="{{csrf_token()}}">
-        <input type="hidden" id="regUrl" value="{{ url('register') }}">
+        <input type="hidden" id="reg_token" value="{{ csrf_token() }}">
         <div class="layui-form-item">
             <label class="layui-form-label">账号</label>
             <div class="layui-input-block">
@@ -33,7 +32,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">确认密码</label>
             <div class="layui-input-block">
-                <input type="password" id="regPwdC" name="password_confirmation" class="layui-input" placeholder="请输入" title="密码" lay-skin="switch">
+                <input type="password" id="regPwdC" name="password_confirmation" lay-verify="password" class="layui-input" placeholder="请输入" title="密码">
             </div>
         </div>
         <div class="layui-form-item">

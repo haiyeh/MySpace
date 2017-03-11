@@ -35,11 +35,81 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 		tool:['face', 'strong', 'italic', 'underline', 'left', 'center', 'right']
 	});
 
+	form.on('submit(userInfo)', function () {
+		var url = 'http://localhost/userInfo';
+		layer.open({
+			type: 2,
+			title: '您的信息',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['580px', '40%'],
+			content: url
+		});
+	});
+
+	form.on('submit(pwdreset)', function () {
+		var url = 'http://localhost/password';
+		layer.open({
+			type: 2,
+			title: '密码修改',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['580px', '22.5%'],
+			content: url
+		});
+	});
 	//监听提交按钮  ajax
+	form.on('submit(pwd_reset)', function () {
+		var url = 'http://localhost/pwdReset';
+		var pwd_old = $("#password_old").val();
+		var pwd_new = $("#password_new").val();
+		var _token = $("#_token").val();
+
+		$.ajax({
+			url:url,
+			type:'post',
+			data:{'pwd_old':pwd_old,'pwd_new':pwd_new,'_token':_token},
+			success:function (res) {
+				if (res == -1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('你输入的新密码与原密码一致，请重新输入',{time:2000});
+					})
+				}else if (res == -2){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('用户检测失败，请重新登录',{time:2000});
+					})
+				}else if (res == -3){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('原密码匹配失败，请输入正确的原密码',{time:2000});
+					})
+				}else if (res == 0){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('修改失败，请重新尝试',{time:2000});
+					})
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('密码修改成功',{time:2000});
+					})
+				}
+			},
+			error:function(){
+				layui.use('layer', function(){
+					var layer = layui.layer;
+					layer.msg('系统错误,正在修复中....');
+				})
+			},
+		})
+		return false;
+	});
 	
 	form.on('submit(register)', function () {
-		var url = $("regUrl").val();
-		var _token = $("_token").val();
+		var url = "http://localhost/registerInfo";
+		var _token = $("#reg_token").val();
 		var name = $("#regName").val();
 		var password = $("#regPwd").val();
 		var password_confirmation = $("#regPwdC").val();
@@ -162,19 +232,19 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 					if (res == 1) {
 						layui.use('layer', function(){
 							var layer = layui.layer;
-							layer.msg('新建成功');
+							layer.msg('相册创建成功');
 						})
 					}else{
 						layui.use('layer', function(){
 							var layer = layui.layer;
-							layer.msg('新建失败');
+							layer.msg('创建相册失败');
 						})
 					}
 				},
 				error:function(){
 					layui.use('layer', function(){
 						var layer = layui.layer;
-						layer.msg('系统错误,正在修复中....');
+						layer.msg('系统错误,请联系管理员修复');
 					})
 				},
 			});
@@ -216,14 +286,20 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 				if(json.code == 1){
 					layui.use('layer', function(){
 						var layer = layui.layer;
-						layer.msg('作者又收到一个赞');
+						layer.msg('点赞成功');
 					})
 					$("#show").html(json.count);
 					document.getElementById('zan').disabled=true;
-				}else{
+				}else if(json.code == -1){
 					layui.use('layer', function(){
 						var layer = layui.layer;
-						layer.msg('点赞失败');
+						layer.msg('您未登陆，无法点赞');
+					})
+					$("#show").html(json.count);
+				}else {
+					layui.use('layer', function(){
+						var layer = layui.layer;
+						layer.msg('系统错了，点赞失败');
 					})
 					$("#show").html(json.count);
 				}
@@ -374,7 +450,23 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 	  	,password: [
 	    	/^[\S]{6,12}$/
 	    	,'密码必须6到12位，且不能出现空格'
-	  	] 
+	  	]
+		,title:function (value) {
+			if(/^\d+\d+\d$/.test(value)){
+				return '标题不能全为数字';
+			}
+			if(/^[\S]{6,30}$/.test(value)){
+				return '标题不得少于6个字，且不能出现空格'
+			}
+		}
+		,diary:[
+			/.{10,}$/
+			,'内容过少'
+		]
+		,mes_verify:[
+			/.{5,}$/
+			,'留言字数过少'
+		]
 	});
 
 

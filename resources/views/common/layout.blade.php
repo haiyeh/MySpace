@@ -48,7 +48,7 @@
 							</ul>
 						</li>
 					@elseif(session('album') == 1)
-						<li><a href="{{ url('picture') }}">查看相册</a></li>
+						<li><a href="{{ url('picture') }}">相册</a></li>
 					@endif
 		      	</ul>
 		      	<ul class="nav navbar-nav navbar-right">
@@ -74,9 +74,9 @@
 							  <li class="divider"></li>
 							  <li><a href="{{ url('admin/logout') }}">管理员退出</a></li>
 						  @elseif(empty(session('admin')) && !empty(session('username')))
-							  <li><a href="{{ url('userMsg') }}">个人信息</a></li>
+							  <li><a href="#" lay-submit lay-filter="userInfo">个人信息</a></li>
 						      <li class="divider"></li>
-						      <li><a href="{{ url('password/email') }}">修改密码</a></li>
+						      <li><a href="#" lay-submit lay-filter="pwdreset">修改密码</a></li>
 							  <li class="divider"></li>
 							  <li><a href="{{ url('auth/logout') }}">退出登录</a></li>
 						  @endif

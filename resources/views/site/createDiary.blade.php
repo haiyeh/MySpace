@@ -9,9 +9,9 @@
     <label class="layui-form-label">标题:</label>
     	<div class="layui-input-block">
 			@if(!isset($diary))
-      			<input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+      			<input type="text" name="title" required  lay-verify="title" placeholder="请输入标题" autocomplete="off" class="layui-input">
     		@else
-				<input type="text" name="title" value="{{ $diary->title }}" required  lay-verify="required" autocomplete="off" class="layui-input">
+				<input type="text" name="title" value="{{ $diary->title }}" required  lay-verify="title" autocomplete="off" class="layui-input">
 			@endif
 		</div>
   	</div>
@@ -19,7 +19,7 @@
     <label class="layui-form-label">日志内容:</label>
     	<div class="layui-input-block">
 			@if(!isset($diary))
-      			<textarea name="content" id="diary" placeholder="请输入内容" class="layui-textarea"></textarea>
+      			<textarea name="content" id="diary" lay-verify="diary" placeholder="请输入内容" class="layui-textarea"></textarea>
 			@else
 				<textarea name="content" id="diary" class="layui-textarea">{{ $diary->content }}</textarea>
 			@endif

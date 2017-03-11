@@ -122,6 +122,7 @@ class PicController extends Controller
                     return "上传失败";
                 }
             }
+            return "<h3>上传成功</h3><hr>";
 //            for ($i = 0; $i<count($fileName); $i++){
 //                Storage::disk('local')->put($fileName[$i], $file);
 //                $store = Storage::move($fileName[$i], $foldName.'/'.md5($fileName[$i]).'.'.$extension[$i]);
@@ -137,7 +138,7 @@ class PicController extends Controller
 //                }
 //            }
 
-            return "<h3>上传成功</h3><hr>";
+
 
         }
 

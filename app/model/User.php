@@ -21,4 +21,14 @@ class User extends Model
         return $user->save();
     }
 
+    public static function getPwd($pwd_old, $username)
+    {
+        return User::select('password')->where(['name' => $username])->first();
+    }
+
+    public static function pwdReset($pwd_new, $username)
+    {
+        return User::where('name', $username)->update(['password' => $pwd_new]);
+    }
+
 }

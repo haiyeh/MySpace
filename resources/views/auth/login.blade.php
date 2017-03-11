@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="_token" content="{{ csrf_token() }}"/>
-		<title>@yield('title')</title>
+		<title>登陆</title>
 		<link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('layui/css/layui.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">

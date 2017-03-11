@@ -16,7 +16,7 @@
                     <td>{{ $item->id }}</td>
                     <td>{!! $item->name !!}</td>
                     <td>
-                        <a href="#" class="btn btn-danger" lay-submit lay-filter="city_delete">
+                        <a href="#" class="btn btn-danger" lay-submit lay-filter="user_delete">
                             <span class="glyphicon glyphicon-remove-circle"></span>删除
                         </a>
                     </td>
