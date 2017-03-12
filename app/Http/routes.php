@@ -52,6 +52,7 @@ Route::group(['namespace' => 'Site'], function(){
     Route::any('registerInfo', 'UserController@register');
     Route::get('password', 'PwdController@password');
     Route::any('pwdReset', 'PwdController@pwdReset');
+    Route::any('head', 'UserController@head_reset');
 });
 
 Route::group(['namespace' => 'Admin'], function (){
@@ -92,4 +93,7 @@ Route::group(['namespace' => 'Admin'], function (){
     Route::any('admin/systemSave', 'SystemController@save');
     Route::get('admin/password', 'AdminController@password');
     Route::any('admin/pwdReset', 'AdminController@pwdReset');
+    Route::get('admin/head', 'UserController@headImg');
+    Route::any('admin/headDel', 'UserController@headDel');
+    Route::any('admin/upload', 'UserController@head_upload');
 });

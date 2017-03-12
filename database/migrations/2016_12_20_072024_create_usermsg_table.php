@@ -21,7 +21,7 @@ class CreateUsermsgTable extends Migration
             $table->string('hobby', 40);
             $table->tinyInteger('sex');
             $table->tinyInteger('livestatus');
-            $table->string('headerpath');
+            $table->smallInteger('head_id');
             $table->string('desc',100);
             $table->timestamps();
         });

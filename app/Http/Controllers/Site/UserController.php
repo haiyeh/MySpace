@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\model\City;
+use App\model\Head;
 use App\model\Usermsg;
 use Encore\Admin\Facades\Auth;
 use Illuminate\Http\Request;
@@ -94,5 +95,11 @@ class UserController extends Controller
             return 0;
         }
 
+    }
+
+    public function head_reset()
+    {
+        $head = Head::getAllHead();
+        return view('site.headimg', ['head' => $head]);
     }
 }

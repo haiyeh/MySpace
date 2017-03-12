@@ -54,6 +54,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="{{ url('admin/user') }}">用户列表</a></dd>
                         <dd><a href="{{ url('admin/city') }}">城市列表</a></dd>
+                        <dd><a href="{{ url('admin/head') }}">头像管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">

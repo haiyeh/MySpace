@@ -42,7 +42,7 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 			title: '您的信息',
 			shadeClose: true,
 			shade: 0.8,
-			area: ['580px', '40%'],
+			area: ['580px', '60%'],
 			content: url
 		});
 	});
@@ -58,6 +58,19 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 			content: url
 		});
 	});
+
+	form.on('submit(head)', function () {
+		var url = 'http://localhost/head';
+		layer.open({
+			type: 2,
+			title: '头像更换',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['580px', '60%'],
+			content: url
+		});
+	});
+
 	//监听提交按钮  ajax
 	form.on('submit(pwd_reset)', function () {
 		var url = 'http://localhost/pwdReset';

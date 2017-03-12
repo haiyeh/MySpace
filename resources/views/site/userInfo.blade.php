@@ -11,6 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
 </head>
 <body>
+<div style="width: 30%;margin: 0px auto;">
+    <a href="#" lay-submit lay-filter="head"><img src="{{ $userMsg->headerpath }}" class="img-circle"></a>
+</div>
 <table class="layui-table" lay-even lay-skin="nob">
     <colgroup>
         <col width="150">
@@ -69,5 +72,9 @@
     </thead>
 </table>
 <a href="#" class="layui-btn layui-btn-warm" style="width: 100%;" onclick="window.open('http://localhost/userMsg')">修改个人信息</a>
+
+<script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/lay.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

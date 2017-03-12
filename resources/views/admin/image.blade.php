@@ -1,18 +1,18 @@
 @extends('common.admin')
 
 @section('admin_right')
-    <div class="btn-group">
-        <button type="button" class="btn btn-danger">相册</button>
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-            @foreach($album as $value)
-                <li><a href="#">{{ $value->album_name }}</a></li>
-            @endforeach
-        </ul>
-    </div>
+    {{--<div class="btn-group">--}}
+        {{--<button type="button" class="btn btn-danger">相册</button>--}}
+        {{--<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">--}}
+            {{--<span class="caret"></span>--}}
+            {{--<span class="sr-only">Toggle Dropdown</span>--}}
+        {{--</button>--}}
+        {{--<ul class="dropdown-menu" role="menu">--}}
+            {{--@foreach($album as $value)--}}
+                {{--<li><a href="#">{{ $value->album_name }}</a></li>--}}
+            {{--@endforeach--}}
+        {{--</ul>--}}
+    {{--</div>--}}
     <div class="admin_right_diary_list">
         <table class="table table-bordered">
             <tr>
