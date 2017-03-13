@@ -23,9 +23,9 @@
         </div>
     @else
         @foreach($msg as $key => $value)
-            <div class="container" style="width:70%;border-bottom: 2px solid #2fa0ec;margin-top:15px; box-shadow: rgba(62, 62, 62, 0.87)">
-                <img src="{{ $value->headerpath }}" alt="" class="img-thumbnail img-responsive" style="width: 80px;height: 80px;float: left">
-                <span style="margin-top: 5px;margin-left: 5px;float: left">{{ $value->username }}</span>
+            <div class="container" style="width:70%;border-top: 2px solid green;margin-top:25px; box-shadow: rgba(62, 62, 62, 0.87)">
+                <img src="{{ $value->headpath }}" alt="" class="img-thumbnail img-responsive" style="width: 80px;height: 80px;float: left">
+                <span style="margin-top: 5px;margin-left: 5px;float: left">{{ $value->username }}</span><p style="text-indent: 600px;">{{ $value->id }}楼</p>
                 <blockquote style="margin-top: 35px;margin-left: 100px;">
                     {!! $value->content !!}
                     <span style="float: right">

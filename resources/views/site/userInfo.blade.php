@@ -12,7 +12,7 @@
 </head>
 <body>
 <div style="width: 30%;margin: 0px auto;">
-    <a href="#" lay-submit lay-filter="head"><img src="{{ $userMsg->headerpath }}" class="img-circle"></a>
+    <a href="#" lay-submit lay-filter="head"><img src="http://localhost/{{ $headpath->headpath }}" class="img-circle"></a>
 </div>
 <table class="layui-table" lay-even lay-skin="nob">
     <colgroup>
@@ -71,8 +71,8 @@
     </tr>
     </thead>
 </table>
-<a href="#" class="layui-btn layui-btn-warm" style="width: 100%;" onclick="window.open('http://localhost/userMsg')">修改个人信息</a>
-
+<a href="#" class="layui-btn" style="width:48%;" onclick="window.open('http://localhost/userMsg')">修改个人信息</a>
+<a href="{{ url('userInfo') }}" class="layui-btn layui-btn-warm" style="width:49.5%;">刷新</a>
 <script type="text/javascript" src="{{ asset('layui/layui.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/lay.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>

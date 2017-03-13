@@ -20,9 +20,10 @@ class Message extends Model
     {
         $user_id = session('user_id');
 //        $message = Message::select('id','content','leave_at','leave_id','user_id')->where('user_id', $user_id)->paginate(10);
-        $message = DB::table('messages')
-            ->join('usermsgs', 'messages.user_id', '=', 'usermsgs.user_id')
-            ->select('usermsgs.headerpath', 'usermsgs.username', 'messages.content', 'messages.leave_at')
+        $message = DB::table('usermsgs')
+            ->join('messages', 'messages.user_id', '=', 'usermsgs.user_id')
+            ->join('heads', 'heads.id', '=', 'usermsgs.head_id')
+            ->select('messages.id', 'heads.headpath', 'usermsgs.username', 'messages.content', 'messages.leave_at')
             ->orderby('leave_at', 'desc')
             ->paginate(10);
 

@@ -34,8 +34,10 @@ class UserController extends Controller
         if (empty($userMsg)){
             return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg, 'city' => $city]);
         }else{
+            $userHead_id =  $userMsg->head_id;
+            $headpath = Head::getHead($userHead_id);
             $request->session()->put([
-                'userHeaderPath' => $userMsg->headerpath,
+                'userHead_id' => $headpath->headpath,
                 'userAddress' => $userMsg->address,
                 'userSex' => $userMsg->sex
             ]);
@@ -52,7 +54,10 @@ class UserController extends Controller
         $userMsg = Usermsg::getUserMsg(session('user_id'));
         $city_id = substr($userMsg->address, 0, 1);
         $cityname = City::getCity($city_id);
-        return view('site.userInfo', ['userMsg' => $userMsg, 'cityname' => $cityname]);
+        $head_id = $userMsg->head_id;
+        $headpath = Head::getHead($head_id);
+//        var_dump($headpath);
+        return view('site.userInfo', ['userMsg' => $userMsg, 'cityname' => $cityname, 'headpath' => $headpath]);
     }
 
     public function saveUser(Request $request)
@@ -67,8 +72,9 @@ class UserController extends Controller
         $desc = $request->desc;
         $livestatus = $request->alone;
         $address = $city.'-'.$street;
-        $headerpath = 'http://localhost/Upload/2016-12-29/default.jpg';
-        $res = Usermsg::saveUserMsg($user_id, $username, $phonenumber, $address, $livestatus, $sex, $hobby, $desc, $headerpath);
+//        $headerpath = 'http://localhost/Upload/2016-12-29/default.jpg';
+        $head_id = 1;
+        $res = Usermsg::saveUserMsg($user_id, $username, $phonenumber, $address, $livestatus, $sex, $hobby, $desc, $head_id);
         if ($res){
             return 1;
         }else{
@@ -97,9 +103,22 @@ class UserController extends Controller
 
     }
 
-    public function head_reset()
+    public function head()
     {
         $head = Head::getAllHead();
         return view('site.headimg', ['head' => $head]);
+    }
+
+    public function head_reset(Request $request)
+    {
+        $head_id = $request->head;
+//        var_dump($head_id);die;
+        $res = Usermsg::head_reset(session('user_id'), $head_id);
+
+        if ($res){
+            return "头像修改成功，请点击右上角的关闭按钮后刷新即可显示";
+        }else{
+            return "头像修改失败，点击<a onclick='history.back(-1)'>返回</a>";
+        }
     }
 }

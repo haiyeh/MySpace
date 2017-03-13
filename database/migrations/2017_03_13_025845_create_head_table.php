@@ -15,6 +15,7 @@ class CreateHeadTable extends Migration
         Schema::create('heads', function (Blueprint $table){
             $table->increments('id');
             $table->string('headpath');
+            $table->timestamps();
         });
     }
 

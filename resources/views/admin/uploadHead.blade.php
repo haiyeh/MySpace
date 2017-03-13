@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ $title }}</title>
+    <title>头像上传</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('layui/css/layui.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
@@ -16,7 +16,7 @@
 </div>
 
 <div class="container">
-    <form class="form-horizontal required-validate" action="{{ url('') }}" enctype="multipart/form-data" method="post">
+    <form class="form-horizontal required-validate" action="{{ url('admin/upload') }}" enctype="multipart/form-data" method="post">
         {!! csrf_field() !!}
 
         <div class="form-group">

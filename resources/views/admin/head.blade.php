@@ -15,7 +15,7 @@
             @foreach($head as $item)
                 <tr id="{{ $item->id }}">
                     <td>{{ $item->id }}</td>
-                    <td>{{ $item->headpath }}</td>
+                    <td><img src="http://localhost/{{ $item->headpath }}" style="width: 100px;height:100px;"></td>
                     <td>
                         <a href="#" class="btn btn-danger" lay-submit lay-filter="head_delete">
                             <span class="glyphicon glyphicon-remove-circle"></span>删除
@@ -26,6 +26,6 @@
         </table>
     </div>
     <div class="container">
-        {!! $image->render() !!}
+        {!! $head->render() !!}
     </div>
 @endsection

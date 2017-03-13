@@ -31,4 +31,5 @@ class User extends Model
         return User::where('name', $username)->update(['password' => $pwd_new]);
     }
 
+
 }

@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         if ($res){
             $request->session()->put('admin', $admin_name);
-            return redirect('/');
+            return redirect('admin');
         }else{
             echo "<script>alert('账号或密码有误，请重新输入');history.back(-1);</script>";
         }

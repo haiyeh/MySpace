@@ -11,8 +11,18 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
 </head>
 <body>
-<div class="head">
 
-</div>
+    <form action="{{ url('head_reset') }}" method="post">
+        {{ csrf_field() }}
+        <div class="head">
+            @foreach($head as $item)
+                <input type="radio" name="head" value="{{ $item->id }}"><img src="{{ $item->headpath }}" style="width: 66px;height: 66px;">
+            @endforeach
+        </div>
+        <div style="width: 20%;margin: 0px auto;">
+            <input type="submit" name="submit" value="确认" class="layui-btn">
+        </div>
+    </form>
+
 </body>
 </html>

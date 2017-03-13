@@ -71,6 +71,18 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 		});
 	});
 
+	form.on('submit(addHead)', function () {
+		var url = 'http://localhost/admin/addHead';
+		layer.open({
+			type: 2,
+			title: '头像上传',
+			shadeClose: true,
+			shade: 0.8,
+			area: ['600px', '90%'],
+			content: url
+		});
+	});
+
 	//监听提交按钮  ajax
 	form.on('submit(pwd_reset)', function () {
 		var url = 'http://localhost/pwdReset';
@@ -468,8 +480,8 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
 			if(/^\d+\d+\d$/.test(value)){
 				return '标题不能全为数字';
 			}
-			if(/^[\S]{6,30}$/.test(value)){
-				return '标题不得少于6个字，且不能出现空格'
+			if(/^[\x4e00-\x9fa5]+$/.test(value)){
+				return '标题字数过少'
 			}
 		}
 		,diary:[
@@ -1218,6 +1230,42 @@ layui.use(['jquery', 'form', 'layer', 'layedit',], function(){
         });
         return false;
     });
+
+	form.on('submit(head_delete)', function () {
+		var url = "http://localhost/admin/headDel";
+		var id = $(this).parent('td').parent('tr').attr('id');
+		$.ajax({
+			url:url,
+			type:'get',
+			data:{id:id},
+			success:function (res) {
+				if (res == 1){
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.alert('删除成功',{
+							skin: 'layui-layer-molv' //样式类名
+							,closeBtn: 1
+							,icon:1
+						}, function () {
+							window.location.reload();
+						});
+					})
+
+				}else{
+					layui.use('layer', function () {
+						var layer = layui.layer;
+						layer.msg('删除失败');
+					})
+				}
+			},
+			error:function () {
+				layui.use('layer', function () {
+					var layer = layui.layer;
+					layer.msg('程序出错，正在紧急抢救中...');
+				})
+			}
+		});
+	});
 });
 
 function comment(){
