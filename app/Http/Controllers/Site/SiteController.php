@@ -34,11 +34,11 @@ class SiteController extends Controller
         ]);
 
         if (empty($praiseCount)){
-            $praiseCount = 0;
+            $praiseCount = null;
         }
 
         if (empty($diaries)){
-            $diaries = '暂无内容';
+            $diaries = null;
         }
 
         if (empty($sources)){

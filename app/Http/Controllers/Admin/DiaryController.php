@@ -58,6 +58,7 @@ class DiaryController extends Controller
     {
         $id = $request->id;
         $res = Diary::delDiary($id);
+        $res_c = Comment::commentDel($id); //文章删除时同时删除该文章的所有评论
 
         if ($res){
             return 1;

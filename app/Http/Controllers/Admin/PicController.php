@@ -29,6 +29,7 @@ class PicController extends Controller
         return view('admin.album', ['album' => $album, 'title' => '相册列表']);
     }
 
+    //获取相册信息
     public function getAlbumMsg(Request $request)
     {
         $id = $request->id;
@@ -58,7 +59,8 @@ class PicController extends Controller
     public function getAlbumDelete(Request $request)
     {
         $id = $request->id;
-        $res = Album::delAlbum($id);
+        $res = Album::delAlbum($id); //删除相册
+        $res_c = Pic::delImage($id); //相册删除时,同时删除该相册下的所有图片
 
         if ($res){
             return 1;

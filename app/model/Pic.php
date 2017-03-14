@@ -66,4 +66,10 @@ class Pic extends Model
     {
         return Pic::destroy($id);
     }
+
+    //相册删除时同时删除该相册下的所有图片
+    public static function delImage($album_id)
+    {
+        return Pic::where('album_id', $album_id)->delete();
+    }
 }

@@ -23,7 +23,7 @@
 				<p>{!! substr($diary->content, 0, 1110) !!}....</p>
 			</blockquote>
 		@else
-			<h1 style="margin: 30px auto;">站长暂无发布文章</h1>
+			<h1 style="margin: 30px auto;">暂无发布文章</h1>
 		@endif
 	</div>
 

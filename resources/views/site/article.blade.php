@@ -44,15 +44,15 @@
 	</div>
 
 	<div class="container" id="comment_all">
-			@foreach($article_comment as $key=>$value)
+			@foreach($article_comment as $value)
 				@if(empty($value))
 					<blockquote class="layui-elem-quote layui-quote-nm">
 						暂无评论，快来抢沙发吧！！
 					</blockquote>
 				@else
-				<div class="container" style="width:70%;border-bottom: 2px solid #2fa0ec;margin-top:15px; box-shadow: rgba(62, 62, 62, 0.87)">
-					<img src="{{ session('userHeaderPath') }}" alt="" class="img-thumbnail img-responsive" style="width: 80px;height: 80px;float: left">
-					<span style="margin-top: 5px;margin-left: 5px;float: left">{{ session('username') }}</span>
+				<div class="container" style="width:70%;border-top: 1px solid greenyellow;margin-top:15px; box-shadow: rgba(62, 62, 62, 0.87)">
+					<img src="http://localhost/{{ $value->headpath }}" alt="" class="img-thumbnail img-responsive" style="width: 80px;height: 80px;margin-top:5px;float: left">
+					<span style="margin-top: 5px;margin-left: 5px;float: left">{{ $value->username }}</span>
 					<blockquote style="margin-top: 35px;margin-left: 100px;">
 						{!! $value->content !!}
 						<span style="float: right">
