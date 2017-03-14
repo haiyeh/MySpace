@@ -34,15 +34,19 @@ class UserController extends Controller
         if (empty($userMsg)){
             return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg, 'city' => $city]);
         }else{
-            $userHead_id =  $userMsg->head_id;
-            $headpath = Head::getHead($userHead_id);
-            $request->session()->put([
-                'userHead_id' => $headpath->headpath,
-                'userAddress' => $userMsg->address,
-                'userSex' => $userMsg->sex
-            ]);
+            if (empty(session('userHead_id'))){
+                $userHead_id =  $userMsg->head_id;
+                $headpath = Head::getHead($userHead_id);
+                $request->session()->put([
+                    'userHead_id' => $headpath->headpath,
+                    'userAddress' => $userMsg->address,
+                    'userSex' => $userMsg->sex
+                ]);
 
-            return redirect('/');
+                return redirect('/');
+            }else{
+                return view('site.userMsgSetting', ['title' => $title, 'userMsg' => $userMsg, 'city' => $city]);
+            }
         }
 
 //        print_r($_SESSION['username']);
