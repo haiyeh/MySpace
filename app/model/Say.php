@@ -14,6 +14,11 @@ class Say extends Model
     	return $say;
     }
 
+    public static function getAdminSay()
+    {
+        return Say::orderby('id')->paginate(3);
+    }
+
     public static function getSayCount()
     {
     	$count = Say::count();

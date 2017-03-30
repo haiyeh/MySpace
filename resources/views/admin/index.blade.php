@@ -36,11 +36,11 @@
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
-                        <colgroup>
-                            <col width="150">
-                            <col width="200">
-                            <col>
-                        </colgroup>
+                        {{--<colgroup>--}}
+                            {{--<col width="150">--}}
+                            {{--<col width="200">--}}
+                            {{--<col>--}}
+                        {{--</colgroup>--}}
                         <thead>
                         <tr>
                             <th>编号</th>
@@ -69,11 +69,11 @@
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
-                        <colgroup>
-                            <col width="150">
-                            <col width="200">
-                            <col>
-                        </colgroup>
+                        {{--<colgroup>--}}
+                            {{--<col width="150">--}}
+                            {{--<col width="200">--}}
+                            {{--<col>--}}
+                        {{--</colgroup>--}}
                         <thead>
                         <tr>
                             <th>编号</th>
@@ -102,11 +102,11 @@
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
-                        <colgroup>
-                            <col width="150">
-                            <col width="200">
-                            <col>
-                        </colgroup>
+                        {{--<colgroup>--}}
+                            {{--<col width="150">--}}
+                            {{--<col width="200">--}}
+                            {{--<col>--}}
+                        {{--</colgroup>--}}
                         <thead>
                         <tr>
                             <th>编号</th>
@@ -135,11 +135,11 @@
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
                     <table class="layui-table" lay-even lay-skin="nob">
-                        <colgroup>
-                            <col width="150">
-                            <col width="200">
-                            <col>
-                        </colgroup>
+                        {{--<colgroup>--}}
+                            {{--<col width="150">--}}
+                            {{--<col width="200">--}}
+                            {{--<col>--}}
+                        {{--</colgroup>--}}
                         <thead>
                         <tr>
                             <th>编号</th>

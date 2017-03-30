@@ -94,6 +94,7 @@
 
 		@section('footer')
 			<div class="footer">
+				<p style="text-align: center;font-size: 15px;color: green;">技术支持：</p>
 				<a href="http://www.php.cn">php</a>
 				<a href="http://www.golaravel.com">Laravel</a>
 				<a href="http://www.bootcss.com/">Bootstrap</a>

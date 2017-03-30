@@ -4,7 +4,7 @@
 	<div class="siteIndex_left">
 		@if(!empty($diary))
 			<div class="diary_header">
-				<h2><a href="{{ url('read') }}/{{ $diary->id }}">{{ $diary->title }}</a><small>发布于{{ date('Y-m-d', $diary->published_at) }}</small></h2>
+				<h2><a href="{{ url('read') }}/{{ $diary->id }}">{{ $diary->title }}</a><small>&nbsp;&nbsp;发布于{{ date('Y-m-d', $diary->published_at) }}</small></h2>
 			</div>
 			&nbsp;<button class="btn btn-warning" lay-submit lay-filter="zan" id="zan">
 					<span class="glyphicon glyphicon-thumbs-up"></span>
